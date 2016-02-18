@@ -10,10 +10,12 @@ For controlling your character you will need to type the command "Go [Direction]
 * "West" or "w"
 * Commands as "NorthWest" or "ne", "SouthEast" or "se" and so on are valid too.
 * You can also use "in", "out" and "into" as Direction Commands for specific situations.
+
 ## Items
 ### Pick Items
 To pick a specified item you should type the command "Get [Item]" or "Take [Item]". You can also use the command "Get all" or "Take all" for taking all the items of the room and putting them into your inventory.
 You can drop the items you have for taking a more relevant one. The commands are "Drop [Item]" for placing it into the Room and "Throw [Item] at [Location]" for throwing it into something.
+
 ### Using Items
 After taking an item you will probably want to use it. Worry not, the command used for this are:
 * "Read [Item]" -> if the Item is readable.
@@ -22,8 +24,10 @@ After taking an item you will probably want to use it. Worry not, the command us
 * "Move [Object]" -> Moves a large object taht cannot be picked up.
 * You can also break an item with the command "Break [Item] with [Item]".
 * In addition, you can tie an item to an object with "Tie [Item] to [Object]".
+
 ### Combat
 In combat you have different commands to use, as "Attack [Creature] with [Item]" or "Kill [Creature] with [Item]".
+
 ## Misc.
 There are more command based on Zork, but I added the command "Pray God" to make the game easier for the not experienced players.
 If you type "Pray God" you will have the option to consume your points for a clue to continue your adventure. There are three types of clues:
