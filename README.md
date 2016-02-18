@@ -10,8 +10,8 @@ For controlling your character you will need to type the command "Go [Direction]
 * "West" or "w"
 * Commands as "NorthWest" or "ne", "SouthEast" or "se" and so on are valid too.
 * You can also use "in", "out" and "into" as Direction Commands for specific situations.
-## Items
 
+## Items
 ### Pick Items
 To pick a specified item you should type the command "Get [Item]" or "Take [Item]". You can also use the command "Get all" or "Take all" for taking all the items of the room and putting them into your inventory.
 
