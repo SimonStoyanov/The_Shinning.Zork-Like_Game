@@ -11,7 +11,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Room.cpp" />
     <ClCompile Include="Source.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Room.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B14420D6-E03C-43E6-AB4D-529F42E018C4}</ProjectGuid>
