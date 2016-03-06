@@ -19,14 +19,45 @@ int main(){
 	Room *Mountains2 = new Room("Mountains", "You are surrounded by mountains. At the northeast there is a path to \nGalia. There is a shield next to the path.");
 	Room *Mountains3 = new Room("Mountains", "You are surrounded by mountains. At the northwest there is a path to Galia.");
 	Room *ValSar_entrance = new Room("Val'Sar", "You are at the entrance to the caves of Val'sar. The view is incredible, \nlooking to the distant north you can see a giant meadow, and next to it \nthere is a large tower. \nTo your left there is a soldier that protects the caves. He sees your \nbadge and enters the cave, leaving a scroll and a lamp.");
+	Room *ValSar_Caves = new Room("Val'Sar Caves", "The cave is narrow and wet. You can see a distant light in front of \nyou, it is probably the only way out. The entrance is behind you.");
+	Room *Meadow1 = new Room("Meadow", "You are in a huge meadow that goes in all directions. You can see a lake to the north and a tall tower. ");
+	Room *Meadow2 = new Room("Meadow", "You are surrounded by mountains, the only way out is the way you came \nfrom. A graveyard is placed in the center of the field");
+	Room *Meadow3 = new Room("Meadow", "You are looking to the north. The tower is even taller from where are \nyou at. To the west there is a small field surrounded by mountains.");
+	Room *Lake = new Room("Lake", "You can almost see the tower in front of you. There is a path to the \nnortheast that leads to somewhere. To the south you can see how small \nis the metropolis in comparison with the world");
+	Room *Bay = new Room("Bay", "A giant rock is blocking the way to the eastern part of the tower, \nyou could go down the rock, but it does not seems to be climbable");
+	Room *STower = new Room("South of the tower", "Next to you there is an immense door. You cannot probably open it. \nTo the east it seems to be an opened window. To the west there is \na cottage, maybe there were people living inside");
+	Room *ETower = new Room("East of the tower", "Next to you there is a wide window where you culd probably fit in. To \nthe north you can see an entrance to an ominous cave");
+	Room *WTower = new Room("West of the tower", "Next to you there is a cottage, the doors are broken and you can see \nthe only room that survived time. It is all dust");
+	Room *NTower = new Room("North of the tower", "To the north the only thing you see is an ominous entrance to a cave \nknown by the inhabitants as The Underground");
+	Room *Maze1 = new Room("Maze", "You are surrounded by walls and you don't know where the way out is");
+	Room *Maze2 = new Room("Maze", "You are surrounded by walls and you don't know where the way out is");
+	Room *Maze3 = new Room("Maze", "You are surrounded by walls and you don't know where the way out is");
 
+	//Link Directions
 
 	//The Game
-	std::cout << "Welcome to The Shinning!" << endl;
+	std::cout << "Welcome to The Shinning! Before plying you may consider read the README.txt \nso that you do not miss anything about how the game works" << endl;
 	
-	YourRoom->printRoom();
-	ValSar_entrance->printRoom();
+	Room *currentRoom = YourRoom;
+	while (command != "quit"){
+		currentRoom->Room::printRoom();
+		std::cout << "What should I do ? ";
+		cin >> command;
+		if (command != "quit" && command != "go" && command != "get" && command != "take" && command != "get all" && command != "take all" && command != "drop" && command != "throw" && command != ""
 
+	}
+
+
+	//Delete all Rooms
+	delete YourRoom; delete LivingRoom; delete Galia;
+	delete Mountains1; delete Mountains2; delete Mountains3;
+	delete ValSar_entrance; delete ValSar_Caves;
+	delete Meadow1; delete Meadow2; delete Meadow3;
+	delete Lake; delete Bay;
+	delete STower; delete ETower; delete WTower; delete NTower;
+	delete Maze1; delete Maze2; delete Maze3;
+
+	//End
 	system("pause");
 	return 0;
 }

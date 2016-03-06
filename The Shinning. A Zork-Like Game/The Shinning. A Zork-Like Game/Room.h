@@ -75,8 +75,6 @@ public:
 		{
 			return NULL;
 		}
-
-
 	}
 };
 

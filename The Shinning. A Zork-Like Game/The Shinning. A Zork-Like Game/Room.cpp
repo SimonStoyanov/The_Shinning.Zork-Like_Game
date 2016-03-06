@@ -6,7 +6,7 @@ using namespace std;
 
 #include "Room.h"
 
-/* Constructor with Name and Description */
+//Constructor with Name and Description
 Room::Room(string _name, string _description)
 {
 	name = _name;
@@ -14,7 +14,7 @@ Room::Room(string _name, string _description)
 }
 
 
-/* Contrsuctor with Name */
+//Constructor with Name
 Room::Room(string _name)
 {
 	name = _name;
