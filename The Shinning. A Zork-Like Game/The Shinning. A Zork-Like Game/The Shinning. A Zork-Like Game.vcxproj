@@ -12,8 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Commands.cpp" />
-    <ClCompile Include="Room.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Commands.h" />

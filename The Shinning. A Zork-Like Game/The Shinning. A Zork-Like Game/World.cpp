@@ -15,7 +15,7 @@ int main(){
 	string command;
 
 	//Rooms
-	Room *YourRoom = new Room("Your Room", "You are at your room. There is a book with some inscription that says\n<Game instructions>, maybe it is from the game you played with your \nfriends yesterday.\nNext to you there is a stair that takes you down to the living room.");
+	Room *YourRoom = new Room("Your Room", "You are at your Room. There is a book with some inscription that says\n<Game instructions>, maybe it is from the game you played with your \nfriends yesterday.\nNext to you there is a stair that takes you down to the living Room.");
 	Room *LivingRoom = new Room("Living Room", "You can see a newspaper next to the chair. You left an apple at the\ntop of your table, it is from yesterday. Next to it there is a knife.");
 	Room *Galia = new Room("Galia", "An injured soldier is yelling desperately at the people; it seems \nhe started a fight with the wrong person. The people is surrounding\nthe soldier in a circle.");
 	Room *Mountains1 = new Room("Mounatins", "You are surrounded by mountains. You can see at the south the Mountains \nof Madness. To the east and to the west there are more mountains.");
@@ -30,7 +30,7 @@ int main(){
 	Room *Bay = new Room("Bay", "A giant rock is blocking the way to the eastern part of the tower, \nyou could go down the rock, but it does not seems to be climbable");
 	Room *STower = new Room("South of the tower", "Next to you there is an immense door. You cannot probably open it. \nTo the east it seems to be an opened window. To the west there is \na cottage, maybe there were people living inside");
 	Room *ETower = new Room("East of the tower", "Next to you there is a wide window where you culd probably fit in. To \nthe north you can see an entrance to an ominous cave");
-	Room *WTower = new Room("West of the tower", "Next to you there is a cottage, the doors are broken and you can see \nthe only room that survived time. It is all dust");
+	Room *WTower = new Room("West of the tower", "Next to you there is a cottage, the doors are broken and you can see \nthe only Room that survived time. It is all dust");
 	Room *NTower = new Room("North of the tower", "To the north the only thing you see is an ominous entrance to a cave \nknown by the inhabitants as The Underground");
 	Room *Maze1 = new Room("Maze", "You are surrounded by walls and you don't know where the way out is");
 	Room *Maze2 = new Room("Maze", "You are surrounded by walls and you don't know where the way out is");
@@ -47,11 +47,10 @@ int main(){
 		cin >> command;
 		if (command != "quit" && Movement_cmd(command) && Item_cmd(command) && Combat_cmd(command) && Misc_cmd(command)){
 			system("color 0C");
-			std::cout << endl << "I don't know what to do, maybe i'll try something different" << endl << endl;
+			std::cout << endl << "Hmm... maybe i'll try something different" << endl << endl;
 			Sleep(500);
 			system("color 0E");
 		}
-
 	}
 
 

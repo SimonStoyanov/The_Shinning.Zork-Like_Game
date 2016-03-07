@@ -14,8 +14,8 @@ private:
 
 public:
 	//Room Construction
-	Room(string, string);
-	Room(string);
+	Room(string _name, string _description) : name(_name), description(_description){}
+	Room(string _name) : name(_name){}
 
 	//Get Room Name
 	string getName(){
@@ -41,23 +41,6 @@ public:
 	void link(Room *room, string direction)
 	{
 		exits[direction] = room;
-	}
-
-	//Print Linked Rooms
-	void printLiked()
-	{
-		map<string, Room*> ::iterator it;
-
-		cout << endl;
-
-		for (it = exits.begin(); it != exits.end(); ++it)
-		{
-			cout << "Exit: ";
-			cout << it->first << " (" << it->second->getName() << ")" << endl;
-
-		}
-
-		cout << endl;
 	}
 
 	//Get linked room
