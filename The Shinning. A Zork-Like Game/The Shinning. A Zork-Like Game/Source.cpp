@@ -2,15 +2,18 @@
 #include <string>
 #include <conio.h>
 #include <map>
+#include <windows.h> 
 
 #include "Room.h"
+#include "Commands.h"
 
 using namespace std;
 
 int main(){
+	system("color 0E");
 	//Variables
 	string command;
-	
+
 	//Rooms
 	Room *YourRoom = new Room("Your Room", "You are at your room. There is a book with some inscription that says\n<Game instructions>, maybe it is from the game you played with your \nfriends yesterday.\nNext to you there is a stair that takes you down to the living room.");
 	Room *LivingRoom = new Room("Living Room", "You can see a newspaper next to the chair. You left an apple at the\ntop of your table, it is from yesterday. Next to it there is a knife.");
@@ -36,14 +39,18 @@ int main(){
 	//Link Directions
 
 	//The Game
-	std::cout << "Welcome to The Shinning! Before plying you may consider read the README.txt \nso that you do not miss anything about how the game works" << endl;
-	
+	std::cout << "Welcome to The Shinning! Before plying you may consider read the README.txt \nso that you do not miss anything about how the game works" << endl << endl;
 	Room *currentRoom = YourRoom;
 	while (command != "quit"){
 		currentRoom->Room::printRoom();
 		std::cout << "What should I do ? ";
 		cin >> command;
-		if (command != "quit" && command != "go" && command != "get" && command != "take" && command != "get all" && command != "take all" && command != "drop" && command != "throw" && command != ""
+		if (command != "quit" && Movement_cmd(command) && Item_cmd(command) && Combat_cmd(command) && Misc_cmd(command)){
+			system("color 0C");
+			std::cout << endl << "I don't know what to do, maybe i'll try something different" << endl << endl;
+			Sleep(1000);
+			system("color 0E");
+		}
 
 	}
 
