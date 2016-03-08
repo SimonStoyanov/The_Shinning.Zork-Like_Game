@@ -6,7 +6,7 @@ using namespace std;
 #include "Commands.h"
 
 bool Movement_cmd(string command){
-	if (command != "go" && command != "go east" && command != "go e" && command != "east" && command != "e" && command != "go northeast" && command != "go ne" && command != "northeast" && command != "ne" && command != "go north" && command != "go n" && command != "north" && command != "n" && command != "go northwest" && command != "go we" && command != "northwest" && command != "nw" &&  command != "go west" && command != "go w" && command != "west" && command != "w" &&  command != "go southwest" && command != "go sw" && command != "southwest" && command != "sw" && command != "go south" && command != "go s" && command != "south" && command != "s" && command != "go southeast" && command != "go se" && command != "southeast" && command != "se"){
+	if (command != "east" && command != "e" && command != "northeast" && command != "ne"&& command != "north" && command != "n" && command != "northwest" && command != "nw" &&  command != "west" && command != "w" && command != "southwest" && command != "sw" && command != "south" && command != "s"  && command != "southeast" && command != "se" && command != "up" && command != "u" && command != "down" && command != "d" && command != "in" && command != "i" && command != "out" && command != "o"){
 		return true;
 	}
 	else{
