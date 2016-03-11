@@ -49,7 +49,7 @@ bool Combat_cmd(string command){
 }
 
 bool Misc_cmd(string command){
-	if (command != "pray god" && command != "pray god minor clue" && command != "pray god mc" && command != "pray god medium clue" && command != "pray god mdc" && command != "pray god advanced clue" && command != "pray god ac"){
+	if (command != "open door" && command != "close door" && command != "pray god" && command != "pray god minor clue" && command != "pray god mc" && command != "pray god medium clue" && command != "pray god mdc" && command != "pray god advanced clue" && command != "pray god ac"){
 		return true;
 	}
 	else{

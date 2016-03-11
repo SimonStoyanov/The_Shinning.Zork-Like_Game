@@ -14,9 +14,9 @@ int main(){
 	//Variables
 	string command;
 
-	//Rooms
+	//Room Construction
 	Room *YourRoom = new Room("Your Room", "You are at your Room. There is a book with some inscription that says\n<Game instructions>, maybe it is from the game you played with your \nfriends yesterday.\nNext to you there is a stair that takes you down to the living Room.");
-	Room *LivingRoom = new Room("Living Room", "You can see a newspaper next to the chair. You left an apple at the\ntop of your table, it is from yesterday. Next to it there is a knife. The exit is to the north");
+	Room *LivingRoom = new Room("Living Room", "You can see a newspaper next to the chair. You left an apple at the\ntop of your table, it is from yesterday. Next to it there is a knife. \nThe exit is to the north");
 	Room *Galia = new Room("Galia", "An injured soldier is yelling desperately at the people; it seems \nhe started a fight with the wrong person. The people is surrounding\nthe soldier in a circle.");
 	Room *Mountains1 = new Room("Mountains", "You are surrounded by mountains. You can see at the south the Mountains \nof Madness. To the east and to the west there are more mountains.");
 	Room *Mountains2 = new Room("Mountains", "You are surrounded by mountains. At the northeast there is a path to \nGalia. There is a shield next to the path.");
@@ -41,9 +41,15 @@ int main(){
 	Room *Maze3 = new Room("Maze", "You are surrounded by walls and you don't know where the way out is");
 
 	//Link Directions
-	YourRoom->link(LivingRoom, "down");				YourRoom->link(LivingRoom, "d");	
-	LivingRoom->link(YourRoom, "up");				LivingRoom->link(YourRoom, "u");			LivingRoom->link(Galia, "out");					LivingRoom->link(Galia, "o");
-	Galia->link(LivingRoom, "in");					Galia->link(LivingRoom, "i");				Galia->link(Mountains1, "south");				Galia->link(Mountains1, "s");				Galia->link(Meadow1, "east");					Galia->link(Meadow1, "e");
+		//Your Room
+			YourRoom->link(LivingRoom, "down", false);
+			YourRoom->link(LivingRoom, "d", false);	
+		//Living Room
+			LivingRoom->link(YourRoom, "up", false);	LivingRoom->link(Galia, "out", true);	LivingRoom->link(Galia, "north", true);
+			LivingRoom->link(YourRoom, "u", false);		LivingRoom->link(Galia, "o", true);		LivingRoom->link(Galia, "n", true);
+		//Galia
+			Galia->link(LivingRoom, "in", false);	Galia->link(Mountains1, "south");
+			Galia->link(LivingRoom, "i", false);	Galia->link(Mountains1, "s");				Galia->link(Meadow1, "east");					Galia->link(Meadow1, "e");
 	Mountains1->link(Galia, "north");				Mountains1->link(Galia, "n");				Mountains1->link(Mountains2, "west");			Mountains1->link(Mountains2, "w");			Mountains1->link(Mountains3, "east");			Mountains1->link(Mountains3, "e");				Mountains1->link(ValSar_entrance, "south");		Mountains1->link(ValSar_entrance, "s");
 	Mountains2->link(Galia, "northeast");			Mountains2->link(Galia, "ne");				Mountains2->link(Mountains1, "east");			Mountains2->link(Mountains1, "e");
 	Mountains3->link(Galia, "northwest");			Mountains3->link(Galia, "nw");				Mountains3->link(Mountains1, "west");			Mountains3->link(Mountains1, "w");
@@ -81,16 +87,19 @@ int main(){
 			system("color 0A");
 		}
 		std::cout << endl;
-		currentRoom->getLinked(command);
 		if (currentRoom->getLinked(command) == NULL){
-			
 			continue;
 		}
 		else{
-			currentRoom = currentRoom->getLinked(command);
+			if (currentRoom->getDoor() == true){
+				std::cout << "the door is closed, you cannot pass through without opening the gate" << endl;
+				continue;
+			}
+			else{
+				currentRoom = currentRoom->getLinked(command);
+			}
 		}
 	}
-
 
 	//Delete all Rooms
 	delete YourRoom;		delete LivingRoom;		delete Galia;
@@ -101,7 +110,8 @@ int main(){
 	delete ETower;			delete WTower;			delete NTower;
 	delete Maze1;			delete Maze2;			delete Maze3;
 	delete BigRock_Down;	delete BigRock_Up;		delete TheUnderground;
+	delete currentRoom;
 	//End
-	system("pause");
+
 	return 0;
 }
