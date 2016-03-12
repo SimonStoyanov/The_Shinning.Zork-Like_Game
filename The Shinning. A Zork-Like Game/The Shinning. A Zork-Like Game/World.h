@@ -16,7 +16,7 @@ public:
 	World(Player* player, Map* map);
 
 	Map *Nir; //Name of the country
-	Player *Aisu;
+	Player *Aisu; //Name of the player
 };
 
 #endif

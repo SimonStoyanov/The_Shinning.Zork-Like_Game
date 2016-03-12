@@ -1,7 +1,10 @@
 #include <iostream>
 #include "World.h"
+#include "MemLeaks.h"
 
 int main(){
+
+	ReportMemoryLeaks();
 
 	World *TheShinning = new World();
 	

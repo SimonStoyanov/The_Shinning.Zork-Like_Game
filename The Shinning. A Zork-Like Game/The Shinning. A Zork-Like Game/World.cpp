@@ -212,7 +212,7 @@ void World::Create_World(World *TheShinning){
 		TheShinning->Nir->TheUnderground->link(TheShinning->Nir->End,			"n");
 
 	//Creating the player
-	TheShinning->Aisu = new Player("hero", "the one that will know the truth", TheShinning->Nir->YourRoom);
+	TheShinning->Aisu = new Player("Aisu", "the one that will know the truth", TheShinning->Nir->YourRoom);
 }
 
 void World::Clean_World(World *TheShinning){
@@ -248,6 +248,7 @@ void World::Clean_World(World *TheShinning){
 
 	//delete world
 	delete TheShinning;
+
 }
 	
 void World::Game_Loop(World *TheShinning) {
@@ -258,7 +259,9 @@ void World::Game_Loop(World *TheShinning) {
 
 	
 	//The Game
-	std::cout << "Welcome to The Shinning! Before playing you may consider read the README.txt \nso that you do not miss anything about how the game works" << endl << endl;
+	std::cout << "Welcome to The Shinning! Before playing you may consider read the text \nbellow so you can play freely" << endl;
+	std::cout << endl << "\t\t(all commands should be in lower case)" << endl << "Simple movement commands:" << endl << "   > north, south, east, west, in, out, down & up" << endl;
+	std::cout << "   > n, s, e, w, i, o, d & up (respectively to the upper commands)" << endl << endl;
 	
 	while (command != "quit"){
 		TheShinning->Aisu->currentRoom->Room::printRoom();
