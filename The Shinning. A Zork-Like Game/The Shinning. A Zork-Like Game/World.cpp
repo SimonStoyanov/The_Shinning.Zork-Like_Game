@@ -8,6 +8,7 @@
 #include "Commands.h"
 #include "World.h"
 #include "Player.h"
+#include "Map.h"
 
 using namespace std;
 
@@ -18,7 +19,7 @@ World::World(){
 
 World::World(Player* player, Map* map) : Aisu(player), Nir(map){}
 
-void World::Create_World(World *TheShinning){
+void Create_World(World *TheShinning){
 	
 	TheShinning->Nir = new Map;
 	
@@ -215,7 +216,7 @@ void World::Create_World(World *TheShinning){
 	TheShinning->Aisu = new Player("Aisu", "the one that will know the truth", TheShinning->Nir->YourRoom);
 }
 
-void World::Clean_World(World *TheShinning){
+void Clean_World(World *TheShinning){
 	//delete player
 	delete TheShinning->Aisu;
 
@@ -251,7 +252,7 @@ void World::Clean_World(World *TheShinning){
 
 }
 	
-void World::Game_Loop(World *TheShinning) {
+void Game_Loop(World *TheShinning) {
 	system("color 0A");
 
 	//Init

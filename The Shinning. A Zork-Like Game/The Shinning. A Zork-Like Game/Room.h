@@ -4,7 +4,6 @@
 #include <string>
 #include <iostream>
 #include <map>
-#include <list>
 
 using namespace std;
 
@@ -26,8 +25,6 @@ public:
 	void printRoom();
 	void link(Room *room, string _direction);
 	Room* getLinked(string direction);
-
-	list<Room*> Rooms;
 };
 
 #endif
