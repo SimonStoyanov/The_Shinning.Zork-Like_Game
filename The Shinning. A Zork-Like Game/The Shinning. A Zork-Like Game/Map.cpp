@@ -16,7 +16,7 @@ void Map::set_YourRoom(Room *room){
 	YourRoom = room;
 }	
 void Map::set_LivingRoom(Room *room){
-	LivingRoom =
+	LivingRoom = room;
 }	
 void Map::set_Galia(Room *room){
 	Galia = room;

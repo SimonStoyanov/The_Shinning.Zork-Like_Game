@@ -8,18 +8,17 @@
 using namespace std;
 
 class Player{
-private:
 	string name;
 	string description;
-	Room *room;
+
 public:
-	Player(Room *room);
+	Room *currentRoom;
+	Player(string _name, string _description, Room *_currentRoom);
 	
 	string getName();
 	string getDescription();
 	Room *getRoom();
 
-	list<Player*> Players;
 };
 
 #endif

@@ -2,7 +2,7 @@
 #include <string>
 #include "Player.h"
 
-Player::Player(Room *_room) : room(_room){}
+Player::Player(string _name, string _description, Room *_currentRoom) : name(_name), description(_description), currentRoom(_currentRoom){}
 
 string Player::getName(){
 	return Player::name;
@@ -13,5 +13,5 @@ string Player::getDescription(){
 }
 
 Room *Player::getRoom(){
-	return Player::room;
+	return Player::currentRoom;
 }

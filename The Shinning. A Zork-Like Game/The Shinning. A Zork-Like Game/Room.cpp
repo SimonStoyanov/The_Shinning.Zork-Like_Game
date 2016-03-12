@@ -34,7 +34,7 @@ Room* Room::getLinked(string direction){
 	map<string, Room*> ::iterator it;
 
 	it = exits.find(direction);
-
+	
 	if (it != exits.end()){
 		return it->second;
 	}
