@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <map>
+#include <list>
 
 using namespace std;
 
@@ -13,46 +14,20 @@ private:
 	string description;
 public:
 	//Room Construction
-	Room(string _name, string _description) : name(_name), description(_description){}
-	Room(string _name) : name(_name){}
-	
-	//Get Room Name
-	string getName(){
-		return name;
-	}
-
-	//Get Room Description
-	string getDescription(){
-		return description;
-	}
-
-	//Print Room
-	void Room::printRoom(){
-		cout << "--" << getName() << "--" << endl;
-		cout << getDescription() << endl;
-	}
+	Room(string _name, string _description);
+	Room(string _name);
 
 	//Map
 	map<string, Room*> exits;
 
-	//Link Function
-	void link(Room *room, string _direction){
-			exits[_direction] = room;
-	}
+	string getName();
+	string getDescription();
+	
+	void printRoom();
+	void link(Room *room, string _direction);
+	Room* getLinked(string direction);
 
-	//Get linked room
-	Room* getLinked(string direction){
-		map<string, Room*> ::iterator it;
-
-		it = exits.find(direction);
-
-		if (it != exits.end()){
-			return it->second;
-		}
-		else{
-			return NULL;
-		}
-	}
+	list<Room*> Rooms;
 };
 
 #endif

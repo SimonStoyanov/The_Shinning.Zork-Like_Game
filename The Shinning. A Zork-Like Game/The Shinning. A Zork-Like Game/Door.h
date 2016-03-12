@@ -3,15 +3,20 @@
 
 #include <string>
 #include <iostream>
+#include "Room.h"
 
 using namespace std;
 
-class Door{
+class Door : public Room{
 private:
-	bool open();
-	bool close();
+	bool door; //True -> Closed //False -> closed
 public:
-	bool sda(){
+
+	//Set doors
+	
+
+	//Get True||False
+	bool getDoor(){
 		return door;
 	}
 
