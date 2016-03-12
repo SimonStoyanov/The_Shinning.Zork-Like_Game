@@ -16,6 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Commands.h" />
+    <ClInclude Include="Door.h" />
     <ClInclude Include="Room.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -11,11 +11,11 @@ class Room{
 private:
 	string name;
 	string description;
-	bool door;	//true -> closed		false -> opened
 public:
 	//Room Construction
 	Room(string _name, string _description) : name(_name), description(_description){}
 	Room(string _name) : name(_name){}
+	
 	//Get Room Name
 	string getName(){
 		return name;
@@ -26,14 +26,8 @@ public:
 		return description;
 	}
 
-	//Get True/False
-	bool getDoor(){
-		return door;
-	}
-
 	//Print Room
-	void Room::printRoom()
-	{
+	void Room::printRoom(){
 		cout << "--" << getName() << "--" << endl;
 		cout << getDescription() << endl;
 	}
@@ -42,32 +36,23 @@ public:
 	map<string, Room*> exits;
 
 	//Link Function
-	void link(Room *room, string direction, bool door)
-	{
-		exits[direction] = room;
-		Room::door = door;
+	void link(Room *room, string _direction){
+			exits[_direction] = room;
 	}
 
 	//Get linked room
-	Room* getLinked(string direction)
-	{
+	Room* getLinked(string direction){
 		map<string, Room*> ::iterator it;
 
 		it = exits.find(direction);
 
-		if (it != exits.end())
-		{
+		if (it != exits.end()){
 			return it->second;
 		}
-		else
-		{
+		else{
 			return NULL;
 		}
 	}
-
-
 };
-
-
 
 #endif

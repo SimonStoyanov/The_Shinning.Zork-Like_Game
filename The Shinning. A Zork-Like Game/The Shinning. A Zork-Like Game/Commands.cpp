@@ -4,6 +4,7 @@
 using namespace std;
 
 #include "Commands.h"
+#include "Room.h"
 
 bool Movement_cmd(string command){
 	if (command != "east" && command != "e" && command != "northeast" && command != "ne"&& command != "north" && command != "n" && command != "northwest" && command != "nw" &&  command != "west" && command != "w" && command != "southwest" && command != "sw" && command != "south" && command != "s"  && command != "southeast" && command != "se" && command != "up" && command != "u" && command != "down" && command != "d" && command != "in" && command != "i" && command != "out" && command != "o"){
@@ -56,3 +57,4 @@ bool Misc_cmd(string command){
 		return false;
 	}
 }
+

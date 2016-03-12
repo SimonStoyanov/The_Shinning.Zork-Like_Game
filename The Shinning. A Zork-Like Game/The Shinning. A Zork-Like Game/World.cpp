@@ -39,38 +39,81 @@ int main(){
 	Room *Maze1 = new Room("Maze", "You are surrounded by walls and you don't know where the way out is");
 	Room *Maze2 = new Room("Maze", "You are surrounded by walls and you don't know where the way out is");
 	Room *Maze3 = new Room("Maze", "You are surrounded by walls and you don't know where the way out is");
+	Room *End = new Room("Made by Simon Stoyanov Beltran", "The story will continue... or not...");
 
 	//Link Directions
 		//Your Room
-			YourRoom->link(LivingRoom, "down", false);
-			YourRoom->link(LivingRoom, "d", false);	
+			YourRoom->link(LivingRoom, "down");
+			YourRoom->link(LivingRoom, "d");	
 		//Living Room
-			LivingRoom->link(YourRoom, "up", false);	LivingRoom->link(Galia, "out", true);	LivingRoom->link(Galia, "north", true);
-			LivingRoom->link(YourRoom, "u", false);		LivingRoom->link(Galia, "o", true);		LivingRoom->link(Galia, "n", true);
+			LivingRoom->link(YourRoom, "up");		LivingRoom->link(Galia, "out");	LivingRoom->link(Galia, "north");
+			LivingRoom->link(YourRoom, "u");		LivingRoom->link(Galia, "o");		LivingRoom->link(Galia, "n");
 		//Galia
-			Galia->link(LivingRoom, "in", false);	Galia->link(Mountains1, "south");
-			Galia->link(LivingRoom, "i", false);	Galia->link(Mountains1, "s");				Galia->link(Meadow1, "east");					Galia->link(Meadow1, "e");
-	Mountains1->link(Galia, "north");				Mountains1->link(Galia, "n");				Mountains1->link(Mountains2, "west");			Mountains1->link(Mountains2, "w");			Mountains1->link(Mountains3, "east");			Mountains1->link(Mountains3, "e");				Mountains1->link(ValSar_entrance, "south");		Mountains1->link(ValSar_entrance, "s");
-	Mountains2->link(Galia, "northeast");			Mountains2->link(Galia, "ne");				Mountains2->link(Mountains1, "east");			Mountains2->link(Mountains1, "e");
-	Mountains3->link(Galia, "northwest");			Mountains3->link(Galia, "nw");				Mountains3->link(Mountains1, "west");			Mountains3->link(Mountains1, "w");
-	ValSar_entrance->link(Mountains1, "north");		ValSar_entrance->link(Mountains1, "n");		ValSar_entrance->link(ValSar_Caves, "south");	ValSar_entrance->link(ValSar_Caves, "s");	ValSar_entrance->link(ValSar_Caves, "in");		ValSar_entrance->link(ValSar_Caves, "i");
-	ValSar_Caves->link(ValSar_entrance, "north");	ValSar_Caves->link(ValSar_entrance, "n");	ValSar_Caves->link(TheGreatSea, "south");		ValSar_Caves->link(TheGreatSea, "s");		ValSar_Caves->link(TheGreatSea, "southeast");	ValSar_Caves->link(TheGreatSea, "se");			ValSar_Caves->link(TheGreatSea, "southwest");	ValSar_Caves->link(TheGreatSea, "sw");
-	TheGreatSea->link(ValSar_Caves, "north");		TheGreatSea->link(ValSar_Caves, "n");		TheGreatSea->link(ValSar_Caves, "northeast");	TheGreatSea->link(ValSar_Caves, "ne");		TheGreatSea->link(ValSar_Caves, "northwest");	TheGreatSea->link(ValSar_Caves, "nw");
-	Meadow1->link(Meadow3, "north");				Meadow1->link(Meadow3, "n");				Meadow1->link(Meadow3, "northeast");			Meadow1->link(Meadow3, "ne");				Meadow1->link(Meadow2, "northwest");			Meadow1->link(Meadow2, "nw");
-	Meadow2->link(Meadow1, "southeast");			Meadow2->link(Meadow1, "se");				Meadow2->link(Meadow3, "east");					Meadow2->link(Meadow3, "e");
-	Meadow3->link(Meadow2, "west");					Meadow3->link(Meadow2, "w");				Meadow3->link(Meadow1, "southh");				Meadow3->link(Meadow2, "s");				Meadow3->link(Meadow1, "southwest");			Meadow3->link(Meadow2, "sw");					Meadow3->link(Lake, "north");					Meadow3->link(Lake, "n");
-	Lake->link(Meadow3, "south");					Lake->link(Meadow3, "s");					Lake->link(Meadow3, "southeast");				Lake->link(Meadow3, "se");					Lake->link(STower, "north");					Lake->link(STower, "n");						Lake->link(Bay, "norththeast");					Lake->link(Bay, "ne");
-	Bay->link(Lake, "southwest");					Bay->link(Lake, "sw");						Bay->link(BigRock_Down, "north");				Bay->link(BigRock_Down, "n");
-	BigRock_Down->link(Bay, "south");				BigRock_Down->link(Bay, "s");
-	BigRock_Up->link(BigRock_Down, "south");		BigRock_Up->link(BigRock_Down, "s");		BigRock_Up->link(ETower, "north");				BigRock_Up->link(ETower, "n");				BigRock_Up->link(ETower, "northeast");			BigRock_Up->link(ETower, "ne");					BigRock_Up->link(ETower, "northwest");			BigRock_Up->link(ETower, "nw");
-	STower->link(Lake, "south");					STower->link(Lake, "s");					STower->link(ETower, "east");					STower->link(ETower, "e");					STower->link(WTower, "west");					STower->link(WTower, "w");
-	ETower->link(STower, "south");					ETower->link(STower, "s");					ETower->link(NTower, "north");					ETower->link(NTower, "n");					ETower->link(Maze1, "northeast");				ETower->link(Maze1, "ne");						ETower->link(BigRock_Up, "southwest");			ETower->link(BigRock_Up, "sw");			ETower->link(BigRock_Up, "southeast");			ETower->link(BigRock_Up, "se");
-	WTower->link(STower, "south");					WTower->link(STower, "s");					WTower->link(NTower, "north");					WTower->link(NTower, "n");					WTower->link(Maze1, "northwest");				WTower->link(Maze1, "nw");
-	NTower->link(ETower, "east");					NTower->link(ETower, "e");					NTower->link(WTower, "west");					NTower->link(WTower, "w");					NTower->link(TheUnderground, "north");			NTower->link(TheUnderground, "n");
-	Maze1->link(Maze2, "north");					Maze1->link(Maze2, "n");					Maze1->link(Maze3, "northwest");				Maze1->link(Maze3, "nw");					Maze1->link(ETower, "west");					Maze1->link(ETower, "w");
-	Maze2->link(Maze1, "southeast");				Maze2->link(Maze1, "se");					Maze2->link(Maze3, "south");					Maze2->link(Maze3, "nw");
-	Maze3->link(Maze2, "northwest");				Maze3->link(Maze2, "nw");					Maze3->link(Maze1, "north");					Maze3->link(Maze1, "n");
-	TheUnderground->link(NTower, "south");			TheUnderground->link(NTower, "s");
+			Galia->link(LivingRoom, "in");	Galia->link(Mountains1, "south");	Galia->link(Meadow1, "east");
+			Galia->link(LivingRoom, "i");	Galia->link(Mountains1, "s");		Galia->link(Meadow1, "e");
+		//Mountains 1
+			Mountains1->link(Galia, "north");	Mountains1->link(Mountains2, "west");	Mountains1->link(Mountains3, "east");	Mountains1->link(ValSar_entrance, "south");
+			Mountains1->link(Galia, "n");		Mountains1->link(Mountains2, "w");		Mountains1->link(Mountains3, "e");		Mountains1->link(ValSar_entrance, "s");
+		//Mountains 2
+			Mountains2->link(Galia, "northeast");	Mountains2->link(Mountains1, "east");
+			Mountains2->link(Galia, "ne");			Mountains2->link(Mountains1, "e");
+		//Mountains 3
+			Mountains3->link(Galia, "northwest");	Mountains3->link(Mountains1, "west");
+			Mountains3->link(Galia, "nw");			Mountains3->link(Mountains1, "w");
+		//Val'Sar: Entrance
+			ValSar_entrance->link(Mountains1, "north");		ValSar_entrance->link(ValSar_Caves, "south");	ValSar_entrance->link(ValSar_Caves, "in");
+			ValSar_entrance->link(Mountains1, "n");			ValSar_entrance->link(ValSar_Caves, "s");		ValSar_entrance->link(ValSar_Caves, "i");
+		//Val'Sar: Caves
+			ValSar_Caves->link(ValSar_entrance, "north");	ValSar_Caves->link(TheGreatSea, "south");	ValSar_Caves->link(TheGreatSea, "southeast");	ValSar_Caves->link(TheGreatSea, "southwest");
+			ValSar_Caves->link(ValSar_entrance, "n");		ValSar_Caves->link(TheGreatSea, "s");		ValSar_Caves->link(TheGreatSea, "se");			ValSar_Caves->link(TheGreatSea, "sw");
+		//The Great Sea
+			TheGreatSea->link(ValSar_Caves, "north");	TheGreatSea->link(ValSar_Caves, "northeast");	TheGreatSea->link(ValSar_Caves, "northwest");
+			TheGreatSea->link(ValSar_Caves, "n");		TheGreatSea->link(ValSar_Caves, "ne");			TheGreatSea->link(ValSar_Caves, "nw");
+		//Meadow 1
+			Meadow1->link(Meadow3, "north");	Meadow1->link(Meadow3, "northeast");		Meadow1->link(Meadow2, "northwest");
+			Meadow1->link(Meadow3, "n");		Meadow1->link(Meadow3, "ne");				Meadow1->link(Meadow2, "nw");
+		//Meadow 2
+			Meadow2->link(Meadow1, "southeast");		Meadow2->link(Meadow3, "east");
+			Meadow2->link(Meadow1, "se");				Meadow2->link(Meadow3, "e");
+		//Meadow 3
+			Meadow3->link(Meadow2, "west");		Meadow3->link(Meadow1, "south");	Meadow3->link(Meadow1, "southwest");		Meadow3->link(Lake, "north");
+			Meadow3->link(Meadow2, "w");		Meadow3->link(Meadow2, "s");		Meadow3->link(Meadow2, "sw");				Meadow3->link(Lake, "n");
+		//Lake
+			Lake->link(Meadow3, "south");	Lake->link(Meadow3, "southeast");	Lake->link(STower, "north");		Lake->link(Bay, "norththeast");
+			Lake->link(Meadow3, "s");		Lake->link(Meadow3, "se");			Lake->link(STower, "n");			Lake->link(Bay, "ne");
+		//Bay
+			Bay->link(Lake, "southwest");	Bay->link(BigRock_Down, "north");
+			Bay->link(Lake, "sw");			Bay->link(BigRock_Down, "n");
+		//Big Rock: Down
+			BigRock_Down->link(Bay, "south");	
+			BigRock_Down->link(Bay, "s");
+		//Big Rock: Up
+			BigRock_Up->link(BigRock_Down, "south");	BigRock_Up->link(ETower, "north");	BigRock_Up->link(ETower, "northeast");		BigRock_Up->link(ETower, "northwest");
+			BigRock_Up->link(BigRock_Down, "s");		BigRock_Up->link(ETower, "n");		BigRock_Up->link(ETower, "ne");				BigRock_Up->link(ETower, "nw");
+		//South Tower
+			STower->link(Lake, "south");		STower->link(ETower, "east");	STower->link(WTower, "west");
+			STower->link(Lake, "s");			STower->link(ETower, "e");		STower->link(WTower, "w");
+		//East Tower
+			ETower->link(STower, "south");	ETower->link(NTower, "north");		ETower->link(Maze1, "northeast");	ETower->link(BigRock_Up, "southwest");	ETower->link(BigRock_Up, "southeast");
+			ETower->link(STower, "s");		ETower->link(NTower, "n" );			ETower->link(Maze1, "ne");			ETower->link(BigRock_Up, "sw");			ETower->link(BigRock_Up, "se");
+		//West Tower
+			WTower->link(STower, "south");	WTower->link(NTower, "north");	WTower->link(Maze1, "northwest");
+			WTower->link(STower, "s");		WTower->link(NTower, "n");		WTower->link(Maze1, "nw");
+		//North Tower
+			NTower->link(ETower, "east");	NTower->link(WTower, "west");	NTower->link(TheUnderground, "north");
+			NTower->link(ETower, "e");		NTower->link(WTower, "w");		NTower->link(TheUnderground, "n");
+		//Maze 1
+			Maze1->link(Maze2, "north");			Maze1->link(Maze3, "northwest");		Maze1->link(ETower, "west");
+			Maze1->link(Maze2, "n");				Maze1->link(Maze3, "nw");				Maze1->link(ETower, "w");
+		//Maze 2
+			Maze2->link(Maze1, "southeast");		Maze2->link(Maze3, "south");
+			Maze2->link(Maze1, "se");				Maze2->link(Maze3, "nw" );
+		//Maze 3
+			Maze3->link(Maze2, "northwest");		Maze3->link(Maze1, "north");
+			Maze3->link(Maze2, "nw");				Maze3->link(Maze1, "n");
+		//The Underground
+			TheUnderground->link(NTower, "south");	TheUnderground->link(End, "north");
+			TheUnderground->link(NTower, "s");		TheUnderground->link(End, "n");
 
 	//The Game
 	std::cout << "Welcome to The Shinning! Before playing you may consider read the README.txt \nso that you do not miss anything about how the game works" << endl << endl;
@@ -79,7 +122,8 @@ int main(){
 	while (command != "quit"){
 		currentRoom->Room::printRoom();
 		std::cout << "What should I do ? ";
-		cin >> command;
+		getline(cin, command);
+
 		if (command != "quit" && Movement_cmd(command) && Item_cmd(command) && Combat_cmd(command) && Misc_cmd(command)){
 			system("color 0C");
 			std::cout << endl << "Hmm... maybe i'll try something different" << endl;
@@ -87,17 +131,12 @@ int main(){
 			system("color 0A");
 		}
 		std::cout << endl;
+
 		if (currentRoom->getLinked(command) == NULL){
 			continue;
 		}
 		else{
-			if (currentRoom->getDoor() == true){
-				std::cout << "the door is closed, you cannot pass through without opening the gate" << endl;
-				continue;
-			}
-			else{
-				currentRoom = currentRoom->getLinked(command);
-			}
+			currentRoom = currentRoom->getLinked(command);	
 		}
 	}
 
@@ -110,7 +149,6 @@ int main(){
 	delete ETower;			delete WTower;			delete NTower;
 	delete Maze1;			delete Maze2;			delete Maze3;
 	delete BigRock_Down;	delete BigRock_Up;		delete TheUnderground;
-	delete currentRoom;
 	//End
 
 	return 0;
