@@ -52,165 +52,165 @@ void Create_World(World *TheShinning){
 
 	//Link Directions
 		//Your Room
-		TheShinning->Nir->YourRoom->link(TheShinning->Nir->LivingRoom, "down", true, true);
-		TheShinning->Nir->YourRoom->link(TheShinning->Nir->LivingRoom, "d", true, true);
+		TheShinning->Nir->YourRoom->link(TheShinning->Nir->LivingRoom, "down");
+		TheShinning->Nir->YourRoom->link(TheShinning->Nir->LivingRoom, "d");
 		//Living Room
-		TheShinning->Nir->LivingRoom->link(TheShinning->Nir->YourRoom, "up", true, true);		
-		TheShinning->Nir->LivingRoom->link(TheShinning->Nir->Galia, "out", true, false);		
-		TheShinning->Nir->LivingRoom->link(TheShinning->Nir->Galia, "north", true, false);
-		TheShinning->Nir->LivingRoom->link(TheShinning->Nir->YourRoom, "u", true, true);		
-		TheShinning->Nir->LivingRoom->link(TheShinning->Nir->Galia, "o", true, false);
-		TheShinning->Nir->LivingRoom->link(TheShinning->Nir->Galia, "n", true, false);
+		TheShinning->Nir->LivingRoom->link(TheShinning->Nir->YourRoom, "up");		
+		TheShinning->Nir->LivingRoom->link(TheShinning->Nir->Galia, "out");		
+		TheShinning->Nir->LivingRoom->link(TheShinning->Nir->Galia, "north");
+		TheShinning->Nir->LivingRoom->link(TheShinning->Nir->YourRoom, "u");		
+		TheShinning->Nir->LivingRoom->link(TheShinning->Nir->Galia, "o");			
+		TheShinning->Nir->LivingRoom->link(TheShinning->Nir->Galia, "n");
 		//Galia
-		TheShinning->Nir->Galia->link(TheShinning->Nir->LivingRoom, "in", true, false);
-		TheShinning->Nir->Galia->link(TheShinning->Nir->Mountains1, "south", true, true);	
-		TheShinning->Nir->Galia->link(TheShinning->Nir->Meadow1, "east", true, true);
-		TheShinning->Nir->Galia->link(TheShinning->Nir->LivingRoom, "i", true, false);
-		TheShinning->Nir->Galia->link(TheShinning->Nir->Mountains1, "s", true, true);	
-		TheShinning->Nir->Galia->link(TheShinning->Nir->Meadow1, "e", true, true);
+		TheShinning->Nir->Galia->link(TheShinning->Nir->LivingRoom, "in");	
+		TheShinning->Nir->Galia->link(TheShinning->Nir->Mountains1, "south");	
+		TheShinning->Nir->Galia->link(TheShinning->Nir->Meadow1, "east");
+		TheShinning->Nir->Galia->link(TheShinning->Nir->LivingRoom, "i");	
+		TheShinning->Nir->Galia->link(TheShinning->Nir->Mountains1, "s");	
+		TheShinning->Nir->Galia->link(TheShinning->Nir->Meadow1, "e");
 		//Mountains 1
-		TheShinning->Nir->Mountains1->link(TheShinning->Nir->Galia, "north", true, true);	
-		TheShinning->Nir->Mountains1->link(TheShinning->Nir->Mountains2, "west", true, true);	
-		TheShinning->Nir->Mountains1->link(TheShinning->Nir->Mountains3, "east", true, true);	
-		TheShinning->Nir->Mountains1->link(TheShinning->Nir->ValSar_entrance, "south", true, true);
-		TheShinning->Nir->Mountains1->link(TheShinning->Nir->Galia, "n", true, true);		
-		TheShinning->Nir->Mountains1->link(TheShinning->Nir->Mountains2, "w", true, true);		
-		TheShinning->Nir->Mountains1->link(TheShinning->Nir->Mountains3, "e", true, true);		
-		TheShinning->Nir->Mountains1->link(TheShinning->Nir->ValSar_entrance, "s", true, true);
+		TheShinning->Nir->Mountains1->link(TheShinning->Nir->Galia, "north");	
+		TheShinning->Nir->Mountains1->link(TheShinning->Nir->Mountains2, "west");	
+		TheShinning->Nir->Mountains1->link(TheShinning->Nir->Mountains3, "east");	
+		TheShinning->Nir->Mountains1->link(TheShinning->Nir->ValSar_entrance, "south");
+		TheShinning->Nir->Mountains1->link(TheShinning->Nir->Galia, "n");		
+		TheShinning->Nir->Mountains1->link(TheShinning->Nir->Mountains2, "w");		
+		TheShinning->Nir->Mountains1->link(TheShinning->Nir->Mountains3, "e");		
+		TheShinning->Nir->Mountains1->link(TheShinning->Nir->ValSar_entrance, "s");
 		//Mountains 2
-		TheShinning->Nir->Mountains2->link(TheShinning->Nir->Galia, "northeast", true, true);		
-		TheShinning->Nir->Mountains2->link(TheShinning->Nir->Mountains1, "east", true, true);
-		TheShinning->Nir->Mountains2->link(TheShinning->Nir->Galia, "ne", true, true);			
-		TheShinning->Nir->Mountains2->link(TheShinning->Nir->Mountains1, "e", true, true);
+		TheShinning->Nir->Mountains2->link(TheShinning->Nir->Galia, "northeast");		
+		TheShinning->Nir->Mountains2->link(TheShinning->Nir->Mountains1, "east");
+		TheShinning->Nir->Mountains2->link(TheShinning->Nir->Galia, "ne");			
+		TheShinning->Nir->Mountains2->link(TheShinning->Nir->Mountains1, "e");
 		//Mountains 3
-		TheShinning->Nir->Mountains3->link(TheShinning->Nir->Galia, "northwest", true, true);
-		TheShinning->Nir->Mountains3->link(TheShinning->Nir->Mountains1, "west", true, true);
-		TheShinning->Nir->Mountains3->link(TheShinning->Nir->Galia, "nw", true, true);			
-		TheShinning->Nir->Mountains3->link(TheShinning->Nir->Mountains1, "w", true, true);
+		TheShinning->Nir->Mountains3->link(TheShinning->Nir->Galia, "northwest");
+		TheShinning->Nir->Mountains3->link(TheShinning->Nir->Mountains1, "west");
+		TheShinning->Nir->Mountains3->link(TheShinning->Nir->Galia, "nw");			
+		TheShinning->Nir->Mountains3->link(TheShinning->Nir->Mountains1, "w");
 		//Val'Sar: Entrance
-		TheShinning->Nir->ValSar_entrance->link(TheShinning->Nir->Mountains1, "north", true, true);		
-		TheShinning->Nir->ValSar_entrance->link(TheShinning->Nir->ValSar_caves, "south", true, true);	
-		TheShinning->Nir->ValSar_entrance->link(TheShinning->Nir->ValSar_caves, "in", true, true);
-		TheShinning->Nir->ValSar_entrance->link(TheShinning->Nir->Mountains1, "n", true, true);			
-		TheShinning->Nir->ValSar_entrance->link(TheShinning->Nir->ValSar_caves, "s", true, true);		
-		TheShinning->Nir->ValSar_entrance->link(TheShinning->Nir->ValSar_caves, "i", true, true);
+		TheShinning->Nir->ValSar_entrance->link(TheShinning->Nir->Mountains1, "north");		
+		TheShinning->Nir->ValSar_entrance->link(TheShinning->Nir->ValSar_caves, "south");	
+		TheShinning->Nir->ValSar_entrance->link(TheShinning->Nir->ValSar_caves, "in");
+		TheShinning->Nir->ValSar_entrance->link(TheShinning->Nir->Mountains1, "n");			
+		TheShinning->Nir->ValSar_entrance->link(TheShinning->Nir->ValSar_caves, "s");		
+		TheShinning->Nir->ValSar_entrance->link(TheShinning->Nir->ValSar_caves, "i");
 		//Val'Sar: Caves
-		TheShinning->Nir->ValSar_caves->link(TheShinning->Nir->ValSar_entrance, "north", true, true);	
-		TheShinning->Nir->ValSar_caves->link(TheShinning->Nir->TheGreatSea, "south", true, true);	
-		TheShinning->Nir->ValSar_caves->link(TheShinning->Nir->TheGreatSea, "southeast", true, true);	
-		TheShinning->Nir->ValSar_caves->link(TheShinning->Nir->TheGreatSea, "southwest", true, true);
-		TheShinning->Nir->ValSar_caves->link(TheShinning->Nir->ValSar_entrance, "n", true, true);		
-		TheShinning->Nir->ValSar_caves->link(TheShinning->Nir->TheGreatSea, "s", true, true);		
-		TheShinning->Nir->ValSar_caves->link(TheShinning->Nir->TheGreatSea, "se", true, true);		
-		TheShinning->Nir->ValSar_caves->link(TheShinning->Nir->TheGreatSea, "sw", true, true);
+		TheShinning->Nir->ValSar_caves->link(TheShinning->Nir->ValSar_entrance, "north");	
+		TheShinning->Nir->ValSar_caves->link(TheShinning->Nir->TheGreatSea, "south");	
+		TheShinning->Nir->ValSar_caves->link(TheShinning->Nir->TheGreatSea, "southeast");	
+		TheShinning->Nir->ValSar_caves->link(TheShinning->Nir->TheGreatSea, "southwest");
+		TheShinning->Nir->ValSar_caves->link(TheShinning->Nir->ValSar_entrance, "n");		
+		TheShinning->Nir->ValSar_caves->link(TheShinning->Nir->TheGreatSea, "s");		
+		TheShinning->Nir->ValSar_caves->link(TheShinning->Nir->TheGreatSea, "se");		
+		TheShinning->Nir->ValSar_caves->link(TheShinning->Nir->TheGreatSea, "sw");
 		//The Great Sea
-		TheShinning->Nir->TheGreatSea->link(TheShinning->Nir->ValSar_caves, "north", true, true);	
-		TheShinning->Nir->TheGreatSea->link(TheShinning->Nir->ValSar_caves, "northeast", true, true);	
-		TheShinning->Nir->TheGreatSea->link(TheShinning->Nir->ValSar_caves, "northwest", true, true);
-		TheShinning->Nir->TheGreatSea->link(TheShinning->Nir->ValSar_caves, "n", true, true);		
-		TheShinning->Nir->TheGreatSea->link(TheShinning->Nir->ValSar_caves, "ne", true, true);		
-		TheShinning->Nir->TheGreatSea->link(TheShinning->Nir->ValSar_caves, "nw", true, true);
+		TheShinning->Nir->TheGreatSea->link(TheShinning->Nir->ValSar_caves, "north");	
+		TheShinning->Nir->TheGreatSea->link(TheShinning->Nir->ValSar_caves, "northeast");	
+		TheShinning->Nir->TheGreatSea->link(TheShinning->Nir->ValSar_caves, "northwest");
+		TheShinning->Nir->TheGreatSea->link(TheShinning->Nir->ValSar_caves, "n");		
+		TheShinning->Nir->TheGreatSea->link(TheShinning->Nir->ValSar_caves, "ne");		
+		TheShinning->Nir->TheGreatSea->link(TheShinning->Nir->ValSar_caves, "nw");
 		//Meadow 1
-		TheShinning->Nir->Meadow1->link(TheShinning->Nir->Meadow3, "north", true, true);
-		TheShinning->Nir->Meadow1->link(TheShinning->Nir->Meadow3, "northeast", true, true);	
-		TheShinning->Nir->Meadow1->link(TheShinning->Nir->Meadow2, "northwest", true, true);
-		TheShinning->Nir->Meadow1->link(TheShinning->Nir->Meadow3, "n", true, true);	
-		TheShinning->Nir->Meadow1->link(TheShinning->Nir->Meadow3, "ne", true, true);			
-		TheShinning->Nir->Meadow1->link(TheShinning->Nir->Meadow2, "nw", true, true);
+		TheShinning->Nir->Meadow1->link(TheShinning->Nir->Meadow3, "north");
+		TheShinning->Nir->Meadow1->link(TheShinning->Nir->Meadow3, "northeast");	
+		TheShinning->Nir->Meadow1->link(TheShinning->Nir->Meadow2, "northwest");
+		TheShinning->Nir->Meadow1->link(TheShinning->Nir->Meadow3, "n");	
+		TheShinning->Nir->Meadow1->link(TheShinning->Nir->Meadow3, "ne");			
+		TheShinning->Nir->Meadow1->link(TheShinning->Nir->Meadow2, "nw");
 		//Meadow 2
-		TheShinning->Nir->Meadow2->link(TheShinning->Nir->Meadow1, "southeast", true, true);		
-		TheShinning->Nir->Meadow2->link(TheShinning->Nir->Meadow3, "east", true, true);
-		TheShinning->Nir->Meadow2->link(TheShinning->Nir->Meadow1, "se", true, true);				
-		TheShinning->Nir->Meadow2->link(TheShinning->Nir->Meadow3, "e", true, true);
+		TheShinning->Nir->Meadow2->link(TheShinning->Nir->Meadow1, "southeast");		
+		TheShinning->Nir->Meadow2->link(TheShinning->Nir->Meadow3, "east");
+		TheShinning->Nir->Meadow2->link(TheShinning->Nir->Meadow1, "se");				
+		TheShinning->Nir->Meadow2->link(TheShinning->Nir->Meadow3, "e");
 		//Meadow 3
-		TheShinning->Nir->Meadow3->link(TheShinning->Nir->Meadow2, "west", true, true);	
-		TheShinning->Nir->Meadow3->link(TheShinning->Nir->Meadow1, "south", true, true);	
-		TheShinning->Nir->Meadow3->link(TheShinning->Nir->Meadow1, "southwest", true, true);	
-		TheShinning->Nir->Meadow3->link(TheShinning->Nir->Lake, "north", true, true);
-		TheShinning->Nir->Meadow3->link(TheShinning->Nir->Meadow2, "w", true, true);		
-		TheShinning->Nir->Meadow3->link(TheShinning->Nir->Meadow2, "s", true, true);		
-		TheShinning->Nir->Meadow3->link(TheShinning->Nir->Meadow2, "sw", true, true);			
-		TheShinning->Nir->Meadow3->link(TheShinning->Nir->Lake, "n", true, true);
+		TheShinning->Nir->Meadow3->link(TheShinning->Nir->Meadow2, "west");	
+		TheShinning->Nir->Meadow3->link(TheShinning->Nir->Meadow1, "south");	
+		TheShinning->Nir->Meadow3->link(TheShinning->Nir->Meadow1, "southwest");	
+		TheShinning->Nir->Meadow3->link(TheShinning->Nir->Lake, "north");
+		TheShinning->Nir->Meadow3->link(TheShinning->Nir->Meadow2, "w");		
+		TheShinning->Nir->Meadow3->link(TheShinning->Nir->Meadow2, "s");		
+		TheShinning->Nir->Meadow3->link(TheShinning->Nir->Meadow2, "sw");			
+		TheShinning->Nir->Meadow3->link(TheShinning->Nir->Lake, "n");
 		//Lake
-		TheShinning->Nir->Lake->link(TheShinning->Nir->Meadow3, "south", true, true);	
-		TheShinning->Nir->Lake->link(TheShinning->Nir->Meadow3, "southeast", true, true);	
-		TheShinning->Nir->Lake->link(TheShinning->Nir->STower, "north", true, true);	
-		TheShinning->Nir->Lake->link(TheShinning->Nir->Bay, "norththeast", true, true);
-		TheShinning->Nir->Lake->link(TheShinning->Nir->Meadow3, "s", true, true);		
-		TheShinning->Nir->Lake->link(TheShinning->Nir->Meadow3, "se", true, true);		
-		TheShinning->Nir->Lake->link(TheShinning->Nir->STower, "n", true, true);		
-		TheShinning->Nir->Lake->link(TheShinning->Nir->Bay, "ne", true, true);
+		TheShinning->Nir->Lake->link(TheShinning->Nir->Meadow3, "south");	
+		TheShinning->Nir->Lake->link(TheShinning->Nir->Meadow3, "southeast");	
+		TheShinning->Nir->Lake->link(TheShinning->Nir->STower, "north");	
+		TheShinning->Nir->Lake->link(TheShinning->Nir->Bay, "norththeast");
+		TheShinning->Nir->Lake->link(TheShinning->Nir->Meadow3, "s");		
+		TheShinning->Nir->Lake->link(TheShinning->Nir->Meadow3, "se");		
+		TheShinning->Nir->Lake->link(TheShinning->Nir->STower, "n");		
+		TheShinning->Nir->Lake->link(TheShinning->Nir->Bay, "ne");
 		//Bay
-		TheShinning->Nir->Bay->link(TheShinning->Nir->Lake, "southwest", true, true);	
-		TheShinning->Nir->Bay->link(TheShinning->Nir->BigRock_Down, "north", true, true);
-		TheShinning->Nir->Bay->link(TheShinning->Nir->Lake, "sw", true, true);			
-		TheShinning->Nir->Bay->link(TheShinning->Nir->BigRock_Down, "n", true, true);
+		TheShinning->Nir->Bay->link(TheShinning->Nir->Lake, "southwest");	
+		TheShinning->Nir->Bay->link(TheShinning->Nir->BigRock_Down, "north");
+		TheShinning->Nir->Bay->link(TheShinning->Nir->Lake, "sw");			
+		TheShinning->Nir->Bay->link(TheShinning->Nir->BigRock_Down, "n");
 		//Big Rock: Down
-		TheShinning->Nir->BigRock_Down->link(TheShinning->Nir->Bay, "south", true, true);
-		TheShinning->Nir->BigRock_Down->link(TheShinning->Nir->Bay, "s", true, true);
+		TheShinning->Nir->BigRock_Down->link(TheShinning->Nir->Bay, "south");
+		TheShinning->Nir->BigRock_Down->link(TheShinning->Nir->Bay, "s");
 		//Big Rock: Up
-		TheShinning->Nir->BigRock_Up->link(TheShinning->Nir->BigRock_Down, "south", true, true);	
-		TheShinning->Nir->BigRock_Up->link(TheShinning->Nir->ETower, "north", true, true);	
-		TheShinning->Nir->BigRock_Up->link(TheShinning->Nir->ETower, "northeast", true, true);	
-		TheShinning->Nir->BigRock_Up->link(TheShinning->Nir->ETower, "northwest", true, true);
-		TheShinning->Nir->BigRock_Up->link(TheShinning->Nir->BigRock_Down, "s", true, true);	
-		TheShinning->Nir->BigRock_Up->link(TheShinning->Nir->ETower, "n", true, true);		
-		TheShinning->Nir->BigRock_Up->link(TheShinning->Nir->ETower, "ne", true, true);			
-		TheShinning->Nir->BigRock_Up->link(TheShinning->Nir->ETower, "nw", true, true);
+		TheShinning->Nir->BigRock_Up->link(TheShinning->Nir->BigRock_Down, "south");	
+		TheShinning->Nir->BigRock_Up->link(TheShinning->Nir->ETower, "north");	
+		TheShinning->Nir->BigRock_Up->link(TheShinning->Nir->ETower, "northeast");	
+		TheShinning->Nir->BigRock_Up->link(TheShinning->Nir->ETower, "northwest");
+		TheShinning->Nir->BigRock_Up->link(TheShinning->Nir->BigRock_Down, "s");	
+		TheShinning->Nir->BigRock_Up->link(TheShinning->Nir->ETower, "n");		
+		TheShinning->Nir->BigRock_Up->link(TheShinning->Nir->ETower, "ne");			
+		TheShinning->Nir->BigRock_Up->link(TheShinning->Nir->ETower, "nw");
 		//South Tower
-		TheShinning->Nir->STower->link(TheShinning->Nir->Lake, "south", true, true);		
-		TheShinning->Nir->STower->link(TheShinning->Nir->ETower, "east", true, true);		
-		TheShinning->Nir->STower->link(TheShinning->Nir->WTower, "west", true, true);
-		TheShinning->Nir->STower->link(TheShinning->Nir->Lake, "s", true, true);			
-		TheShinning->Nir->STower->link(TheShinning->Nir->ETower, "e", true, true);		
-		TheShinning->Nir->STower->link(TheShinning->Nir->WTower, "w", true, true);
+		TheShinning->Nir->STower->link(TheShinning->Nir->Lake, "south");		
+		TheShinning->Nir->STower->link(TheShinning->Nir->ETower, "east");		
+		TheShinning->Nir->STower->link(TheShinning->Nir->WTower, "west");
+		TheShinning->Nir->STower->link(TheShinning->Nir->Lake, "s");			
+		TheShinning->Nir->STower->link(TheShinning->Nir->ETower, "e");		
+		TheShinning->Nir->STower->link(TheShinning->Nir->WTower, "w");
 		//East Tower
-		TheShinning->Nir->ETower->link(TheShinning->Nir->STower, "south", true, true);	
-		TheShinning->Nir->ETower->link(TheShinning->Nir->NTower, "north", true, true);		
-		TheShinning->Nir->ETower->link(TheShinning->Nir->Maze1, "northeast", true, true);	
-		TheShinning->Nir->ETower->link(TheShinning->Nir->BigRock_Up, "southwest", true, true);	
-		TheShinning->Nir->ETower->link(TheShinning->Nir->BigRock_Up, "southeast", true, true);
-		TheShinning->Nir->ETower->link(TheShinning->Nir->STower, "s", true, true);		
-		TheShinning->Nir->ETower->link(TheShinning->Nir->NTower, "n", true, true);		
-		TheShinning->Nir->ETower->link(TheShinning->Nir->Maze1, "ne", true, true);			
-		TheShinning->Nir->ETower->link(TheShinning->Nir->BigRock_Up, "sw", true, true);		
-		TheShinning->Nir->ETower->link(TheShinning->Nir->BigRock_Up, "se", true, true);
+		TheShinning->Nir->ETower->link(TheShinning->Nir->STower, "south");	
+		TheShinning->Nir->ETower->link(TheShinning->Nir->NTower, "north");		
+		TheShinning->Nir->ETower->link(TheShinning->Nir->Maze1, "northeast");	
+		TheShinning->Nir->ETower->link(TheShinning->Nir->BigRock_Up, "southwest");	
+		TheShinning->Nir->ETower->link(TheShinning->Nir->BigRock_Up, "southeast");
+		TheShinning->Nir->ETower->link(TheShinning->Nir->STower, "s");		
+		TheShinning->Nir->ETower->link(TheShinning->Nir->NTower, "n");		
+		TheShinning->Nir->ETower->link(TheShinning->Nir->Maze1, "ne");			
+		TheShinning->Nir->ETower->link(TheShinning->Nir->BigRock_Up, "sw");		
+		TheShinning->Nir->ETower->link(TheShinning->Nir->BigRock_Up, "se");
 		//West Tower
-		TheShinning->Nir->WTower->link(TheShinning->Nir->STower, "south", true, true);	
-		TheShinning->Nir->WTower->link(TheShinning->Nir->NTower, "north", true, true);	
-		TheShinning->Nir->WTower->link(TheShinning->Nir->Maze1, "northwest", true, true);
-		TheShinning->Nir->WTower->link(TheShinning->Nir->STower, "s", true, true);		
-		TheShinning->Nir->WTower->link(TheShinning->Nir->NTower, "n", true, true);		
-		TheShinning->Nir->WTower->link(TheShinning->Nir->Maze1, "nw", true, true);
+		TheShinning->Nir->WTower->link(TheShinning->Nir->STower, "south");	
+		TheShinning->Nir->WTower->link(TheShinning->Nir->NTower, "north");	
+		TheShinning->Nir->WTower->link(TheShinning->Nir->Maze1, "northwest");
+		TheShinning->Nir->WTower->link(TheShinning->Nir->STower, "s");		
+		TheShinning->Nir->WTower->link(TheShinning->Nir->NTower, "n");		
+		TheShinning->Nir->WTower->link(TheShinning->Nir->Maze1, "nw");
 		//North Tower
-		TheShinning->Nir->NTower->link(TheShinning->Nir->ETower, "east", true, true);		
-		TheShinning->Nir->NTower->link(TheShinning->Nir->WTower, "west", true, true);	
-		TheShinning->Nir->NTower->link(TheShinning->Nir->TheUnderground, "north", true, true);
-		TheShinning->Nir->NTower->link(TheShinning->Nir->ETower, "e", true, true);		
-		TheShinning->Nir->NTower->link(TheShinning->Nir->WTower, "w", true, true);		
-		TheShinning->Nir->NTower->link(TheShinning->Nir->TheUnderground, "n", true, true);
+		TheShinning->Nir->NTower->link(TheShinning->Nir->ETower, "east");		
+		TheShinning->Nir->NTower->link(TheShinning->Nir->WTower, "west");	
+		TheShinning->Nir->NTower->link(TheShinning->Nir->TheUnderground, "north");
+		TheShinning->Nir->NTower->link(TheShinning->Nir->ETower, "e");		
+		TheShinning->Nir->NTower->link(TheShinning->Nir->WTower, "w");		
+		TheShinning->Nir->NTower->link(TheShinning->Nir->TheUnderground, "n");
 		//Maze 1
-		TheShinning->Nir->Maze1->link(TheShinning->Nir->Maze2, "north", true, true);			
-		TheShinning->Nir->Maze1->link(TheShinning->Nir->Maze3, "northwest", true, true);		
-		TheShinning->Nir->Maze1->link(TheShinning->Nir->ETower, "west", true, true);
-		TheShinning->Nir->Maze1->link(TheShinning->Nir->Maze2, "n", true, true);				
-		TheShinning->Nir->Maze1->link(TheShinning->Nir->Maze3, "nw", true, true);				
-		TheShinning->Nir->Maze1->link(TheShinning->Nir->ETower, "w", true, true);
+		TheShinning->Nir->Maze1->link(TheShinning->Nir->Maze2, "north");			
+		TheShinning->Nir->Maze1->link(TheShinning->Nir->Maze3, "northwest");		
+		TheShinning->Nir->Maze1->link(TheShinning->Nir->ETower, "west");
+		TheShinning->Nir->Maze1->link(TheShinning->Nir->Maze2, "n");				
+		TheShinning->Nir->Maze1->link(TheShinning->Nir->Maze3, "nw");				
+		TheShinning->Nir->Maze1->link(TheShinning->Nir->ETower, "w");
 		//Maze 2
-		TheShinning->Nir->Maze2->link(TheShinning->Nir->Maze1, "southeast", true, true);		
-		TheShinning->Nir->Maze2->link(TheShinning->Nir->Maze3, "south", true, true);
-		TheShinning->Nir->Maze2->link(TheShinning->Nir->Maze1, "se", true, true);				
-		TheShinning->Nir->Maze2->link(TheShinning->Nir->Maze3, "nw", true, true);
+		TheShinning->Nir->Maze2->link(TheShinning->Nir->Maze1, "southeast");		
+		TheShinning->Nir->Maze2->link(TheShinning->Nir->Maze3, "south");
+		TheShinning->Nir->Maze2->link(TheShinning->Nir->Maze1, "se");				
+		TheShinning->Nir->Maze2->link(TheShinning->Nir->Maze3, "nw");
 		//Maze 3
-		TheShinning->Nir->Maze3->link(TheShinning->Nir->Maze2, "northwest", true, true);		
-		TheShinning->Nir->Maze3->link(TheShinning->Nir->Maze1, "north", true, true);
-		TheShinning->Nir->Maze3->link(TheShinning->Nir->Maze2, "nw", true, true);				
-		TheShinning->Nir->Maze3->link(TheShinning->Nir->Maze1, "n", true, true);
+		TheShinning->Nir->Maze3->link(TheShinning->Nir->Maze2, "northwest");		
+		TheShinning->Nir->Maze3->link(TheShinning->Nir->Maze1, "north");
+		TheShinning->Nir->Maze3->link(TheShinning->Nir->Maze2, "nw");				
+		TheShinning->Nir->Maze3->link(TheShinning->Nir->Maze1, "n");
 		//The Underground
-		TheShinning->Nir->TheUnderground->link(TheShinning->Nir->NTower, "south", true, true);	
-		TheShinning->Nir->TheUnderground->link(TheShinning->Nir->End, "north", true, true);
-		TheShinning->Nir->TheUnderground->link(TheShinning->Nir->NTower, "s", true, true);		
-		TheShinning->Nir->TheUnderground->link(TheShinning->Nir->End, "n", true, true);
+		TheShinning->Nir->TheUnderground->link(TheShinning->Nir->NTower, "south");	
+		TheShinning->Nir->TheUnderground->link(TheShinning->Nir->End, "north");
+		TheShinning->Nir->TheUnderground->link(TheShinning->Nir->NTower, "s");		
+		TheShinning->Nir->TheUnderground->link(TheShinning->Nir->End, "n");
 
 	//Creating the player
 	TheShinning->Aisu = new Player("Aisu", "the one that will know the truth", TheShinning->Nir->YourRoom);
@@ -231,7 +231,7 @@ void Game_Loop(World *TheShinning) {
 
 	//The Game
 	std::cout << "Welcome to The Shinning! Before playing you may consider read the text \nbellow so you can play freely" << endl;
-	std::cout << endl << "\t\t(all commands should be in lower case, true)" << endl << "Simple movement commands:" << endl << "   > north, south, east, west, in, out, down & up" << endl;
+	std::cout << endl << "\t\t(all commands should be in lower case)" << endl << "Simple movement commands:" << endl << "   > north, south, east, west, in, out, down & up" << endl;
 	std::cout << "   > n, s, e, w, i, o, d & up (respectively to the upper commands)" << endl << endl;
 	
 	while (command != "quit"){
@@ -246,24 +246,18 @@ void Game_Loop(World *TheShinning) {
 			system("color 0A");
 		}
 		std::cout << endl;
-		if (TheShinning->Aisu->currentRoom->Is_Connected(TheShinning->Aisu->currentRoom)){
-			if (TheShinning->Aisu->currentRoom->Is_Closed(TheShinning->Aisu->currentRoom)){
-				if (TheShinning->Aisu->currentRoom->Room::getLinked(command) == NULL){
-				}
-				else{
-					TheShinning->Aisu->currentRoom = TheShinning->Aisu->currentRoom->Room::getLinked(command);
-					if (TheShinning->Aisu->currentRoom == TheShinning->Nir->End){
-						command = "quit";
-						continue;
-					}
-				}
-			}
-			else{
-				std::cout << "The door is closed" << endl << endl;
+
+		if (TheShinning->Aisu->currentRoom->Room::getLinked(command) == NULL){
+			
+		}
+		else{
+			TheShinning->Aisu->currentRoom = TheShinning->Aisu->currentRoom->Room::getLinked(command);
+			if (TheShinning->Aisu->currentRoom == TheShinning->Nir->End){
+				command = "quit";
+				continue;
 			}
 		}
 	}
-
 	TheShinning->Nir->End->Room::printRoom();
 	std::cout << endl;
 	system("pause");
