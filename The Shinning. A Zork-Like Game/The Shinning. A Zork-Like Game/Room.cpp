@@ -18,6 +18,16 @@ string Room::getDescription(){
 	return description;
 }
 
+//Get connection
+bool Room::getIs_Connected(){
+	return is_connected;
+}
+
+//Get Door
+bool Room::getDoor(){
+	return door;
+}
+
 //Print Room
 void Room::printRoom(){
 	cout << "--" << getName() << "--" << endl;
@@ -25,8 +35,10 @@ void Room::printRoom(){
 }
 
 //Link Function
-void Room::link(Room *room, string _direction){
+void Room::link(Room *room, string _direction, bool _is_connected, bool _door){
 	exits[_direction] = room;
+	is_connected = _is_connected;
+	door = _door;
 }
 
 //Get linked room
@@ -41,4 +53,12 @@ Room* Room::getLinked(string direction){
 	else{
 		return NULL;
 	}
+}
+
+//Bools
+bool Room::Is_Connected(Room* current_room){
+	return current_room->getIs_Connected();
+}
+bool Room::Is_Closed(Room* current_room){
+	return current_room->getDoor();
 }
