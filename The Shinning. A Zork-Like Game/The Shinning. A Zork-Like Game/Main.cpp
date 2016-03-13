@@ -10,7 +10,7 @@ int main(){
 	
 	Create_World(TheShinning);
 	Game_Loop(TheShinning);
-	Clean_World(TheShinning);
+	Clean_Game();
 
 	return 0;
 }

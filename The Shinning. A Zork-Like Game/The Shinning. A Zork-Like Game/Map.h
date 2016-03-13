@@ -2,6 +2,7 @@
 #define Map_h
 
 #include "Room.h"
+#include <iostream>
 
 class Map{
 public:
@@ -26,6 +27,18 @@ public:
 	void set_STower(Room *room);	void set_NTower(Room *room);		void set_TheUnderground(Room *room);
 	void set_Maze1(Room *room);		void set_Maze2(Room *room);			void set_Maze3(Room *room);
 	void set_End(Room *room);
+
+	void Clean_Rooms(){
+		delete YourRoom;		delete LivingRoom;		delete Galia;
+		delete Mountains1;		delete Mountains2;		delete Mountains3;
+		delete ValSar_entrance;	delete ValSar_caves;	delete TheGreatSea;
+		delete Meadow1;			delete Meadow2;			delete Meadow3;
+		delete Lake;			delete Bay;				delete BigRock_Up;
+		delete BigRock_Down;	delete ETower;			delete WTower;
+		delete STower;			delete NTower;			delete TheUnderground;
+		delete Maze1;			delete Maze2;			delete Maze3;
+		delete End;
+	}
 };
 
 #endif

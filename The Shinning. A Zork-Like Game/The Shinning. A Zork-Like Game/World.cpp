@@ -48,7 +48,7 @@ void Create_World(World *TheShinning){
 	TheShinning->Nir->set_Maze1(new Room("Maze","You are surrounded by walls and you don't know where the way out is"));
 	TheShinning->Nir->set_Maze2(new Room("Maze","You are surrounded by walls and you don't know where the way out is"));
 	TheShinning->Nir->set_Maze3(new Room("Maze","You are surrounded by walls and you don't know where the way out is"));
-	TheShinning->Nir->set_End(new Room("Made by Simon Stoyanov Beltran","The story will continue... or not..."));
+	TheShinning->Nir->set_End(new Room("Thank you for playing The Shinning","Game made by Simon Stoyanov Beltran for college.\nBased on the game Zork.\n\t\thttps://github.com/SimonStoyanov"));
 
 	//Link Directions
 		//Your Room
@@ -216,40 +216,11 @@ void Create_World(World *TheShinning){
 	TheShinning->Aisu = new Player("Aisu", "the one that will know the truth", TheShinning->Nir->YourRoom);
 }
 
-void Clean_World(World *TheShinning){
-	//delete player
-	delete TheShinning->Aisu;
-
-	//delete rooms
-	delete TheShinning->Nir->YourRoom;
-	delete TheShinning->Nir->LivingRoom;
-	delete TheShinning->Nir->Galia;
-	delete TheShinning->Nir->Mountains1;
-	delete TheShinning->Nir->Mountains2;
-	delete TheShinning->Nir->Mountains3;
-	delete TheShinning->Nir->ValSar_entrance;
-	delete TheShinning->Nir->ValSar_caves;
-	delete TheShinning->Nir->TheGreatSea;
-	delete TheShinning->Nir->Meadow1;
-	delete TheShinning->Nir->Meadow2;
-	delete TheShinning->Nir->Meadow3;
-	delete TheShinning->Nir->Lake;
-	delete TheShinning->Nir->Bay;
-	delete TheShinning->Nir->BigRock_Up;
-	delete TheShinning->Nir->BigRock_Down;
-	delete TheShinning->Nir->STower;
-	delete TheShinning->Nir->ETower;
-	delete TheShinning->Nir->WTower;
-	delete TheShinning->Nir->NTower;
-	delete TheShinning->Nir->TheUnderground;
-	delete TheShinning->Nir->End;
-
-	//delete map
-	delete TheShinning->Nir;
-
-	//delete world
-	delete TheShinning;
-
+void Clean_Game(){
+	&World::Clean_Player;
+	&Map::Clean_Rooms;
+	&World::Clean_Map;
+	&World::Clean_World;
 }
 	
 void Game_Loop(World *TheShinning) {
@@ -258,7 +229,6 @@ void Game_Loop(World *TheShinning) {
 	//Init
 	string command;
 
-	
 	//The Game
 	std::cout << "Welcome to The Shinning! Before playing you may consider read the text \nbellow so you can play freely" << endl;
 	std::cout << endl << "\t\t(all commands should be in lower case)" << endl << "Simple movement commands:" << endl << "   > north, south, east, west, in, out, down & up" << endl;
@@ -282,11 +252,13 @@ void Game_Loop(World *TheShinning) {
 		}
 		else{
 			TheShinning->Aisu->currentRoom = TheShinning->Aisu->currentRoom->Room::getLinked(command);
+			if (TheShinning->Aisu->currentRoom == TheShinning->Nir->End){
+				command = "quit";
+				continue;
+			}
 		}
 	}
-
-	//Delete all Rooms
-	Clean_World(TheShinning);
-	//End
-
+	TheShinning->Nir->End->Room::printRoom();
+	std::cout << endl;
+	system("pause");
 }
