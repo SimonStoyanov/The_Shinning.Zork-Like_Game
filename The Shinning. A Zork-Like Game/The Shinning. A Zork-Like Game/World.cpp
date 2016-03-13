@@ -238,7 +238,7 @@ void Game_Loop(World *TheShinning) {
 	while (command != "quit"){
 		TheShinning->Aisu->currentRoom->Room::printRoom();
 		std::cout << "What should I do ? ";
-		cin >> command;
+		std::getline(cin, command);
 
 		if (command != "quit" && Movement_cmd(command) && Item_cmd(command) && Combat_cmd(command) && Misc_cmd(command)){
 			system("color 0C");
@@ -248,7 +248,7 @@ void Game_Loop(World *TheShinning) {
 		}
 		std::cout << endl;
 
-		if (command == "open" && ((TheShinning->Aisu->currentRoom == TheShinning->Nir->LivingRoom) || (TheShinning->Aisu->currentRoom == TheShinning->Nir->Galia))){
+		if (command == "open door" && ((TheShinning->Aisu->currentRoom == TheShinning->Nir->LivingRoom) || (TheShinning->Aisu->currentRoom == TheShinning->Nir->Galia))){
 			if (doorLivingRoom == false){
 				std::cout << "Door opened" << endl << endl;
 				doorLivingRoom = true;
@@ -257,7 +257,7 @@ void Game_Loop(World *TheShinning) {
 				std::cout << "No door to open" << endl << endl;
 			}
 		}
-		else if (command == "close" && ((TheShinning->Aisu->currentRoom == TheShinning->Nir->LivingRoom) || (TheShinning->Aisu->currentRoom == TheShinning->Nir->Galia))){
+		else if (command == "close door" && ((TheShinning->Aisu->currentRoom == TheShinning->Nir->LivingRoom) || (TheShinning->Aisu->currentRoom == TheShinning->Nir->Galia))){
 			if (doorLivingRoom == true){
 				std::cout << "Door closed" << endl << endl;
 				doorLivingRoom = false;

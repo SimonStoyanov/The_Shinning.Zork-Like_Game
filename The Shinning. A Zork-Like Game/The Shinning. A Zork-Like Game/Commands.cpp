@@ -50,7 +50,7 @@ bool Combat_cmd(string command){
 }
 
 bool Misc_cmd(string command){
-	if (command != "open" && command != "close" && command != "pray"){
+	if (command != "open door" && command != "close door" && command != "pray"){
 		return true;
 	}
 	else{
