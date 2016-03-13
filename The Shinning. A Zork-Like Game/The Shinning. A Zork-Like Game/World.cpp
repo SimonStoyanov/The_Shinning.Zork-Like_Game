@@ -228,11 +228,12 @@ void Game_Loop(World *TheShinning) {
 
 	//Init
 	string command;
-
+	bool doorLivingRoom = false; // false->closed		true->opened
 	//The Game
 	std::cout << "Welcome to The Shinning! Before playing you may consider read the text \nbellow so you can play freely" << endl;
-	std::cout << endl << "\t\t(all commands should be in lower case)" << endl << "Simple movement commands:" << endl << "   > north, south, east, west, in, out, down & up" << endl;
-	std::cout << "   > n, s, e, w, i, o, d & up (respectively to the upper commands)" << endl << endl;
+	std::cout << endl << "    (all commands should be in lower case and they must be one word)" << endl << endl << "Simple movement commands:" << endl << "   > north, south, east, west, in, out, down & up" << endl;
+	std::cout << "   > n, s, e, w, i, o, d & up (respectively to the upper commands)" << endl;
+	std::cout << "   > open, close" << endl << endl;
 	
 	while (command != "quit"){
 		TheShinning->Aisu->currentRoom->Room::printRoom();
@@ -247,8 +248,29 @@ void Game_Loop(World *TheShinning) {
 		}
 		std::cout << endl;
 
+		if (command == "open" && ((TheShinning->Aisu->currentRoom == TheShinning->Nir->LivingRoom) || (TheShinning->Aisu->currentRoom == TheShinning->Nir->Galia))){
+			if (doorLivingRoom == false){
+				std::cout << "Door opened" << endl << endl;
+				doorLivingRoom = true;
+			}
+			else{
+				std::cout << "No door to open" << endl << endl;
+			}
+		}
+		else if (command == "close" && ((TheShinning->Aisu->currentRoom == TheShinning->Nir->LivingRoom) || (TheShinning->Aisu->currentRoom == TheShinning->Nir->Galia))){
+			if (doorLivingRoom == true){
+				std::cout << "Door closed" << endl << endl;
+				doorLivingRoom = false;
+			}
+			else{
+				std::cout << "No door to close" << endl << endl;
+			}
+		}
 		if (TheShinning->Aisu->currentRoom->Room::getLinked(command) == NULL){
 			
+		}
+		else if ((((TheShinning->Aisu->currentRoom == TheShinning->Nir->LivingRoom) && (TheShinning->Aisu->currentRoom->Room::getLinked(command) == TheShinning->Nir->Galia)) || ((TheShinning->Aisu->currentRoom == TheShinning->Nir->Galia) && (TheShinning->Aisu->currentRoom->Room::getLinked(command) == TheShinning->Nir->LivingRoom))) && doorLivingRoom == false){
+			std::cout << "The door is closed, you cannot pass through" << endl << endl;
 		}
 		else{
 			TheShinning->Aisu->currentRoom = TheShinning->Aisu->currentRoom->Room::getLinked(command);
