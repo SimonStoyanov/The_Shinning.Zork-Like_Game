@@ -19,7 +19,7 @@ public:
 	Map();
 
 	void set_YourRoom(Room *room);	void set_LivingRoom(Room *room);	void set_Galia(Room *room);
-	void set_Mountains1(Room *room);void set_Mountains2(Room *room);	void set_Mountains3(Room *room);
+	void set_Mountains1(Room *room); void set_Mountains2(Room *room);	void set_Mountains3(Room *room);
 	void set_ValSar_e(Room *room);	void set_ValSar_c(Room *room);		void set_TheGreatSea(Room *room);
 	void set_Meadow1(Room *room);	void set_Meadow2(Room *room);		void set_Meadow3(Room *room);
 	void set_Lake(Room *room);		void set_Bay(Room *room);			void set_BigRock_u(Room *room);

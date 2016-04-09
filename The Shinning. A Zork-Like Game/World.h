@@ -4,7 +4,6 @@
 #include "Player.h"
 #include "Map.h"
 
-
 class Map;
 
 class World{
@@ -25,7 +24,7 @@ public:
 	void Clean_World(){
 		delete TheShinning;
 	}
-	
+
 };
 
 void Create_World(World *TheShinning);

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "The Shinning. A Zork-Like Game", "The Shinning. A Zork-Like Game\The Shinning. A Zork-Like Game.vcxproj", "{B14420D6-E03C-43E6-AB4D-529F42E018C4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "The Shinning. A Zork-Like Game", "The Shinning. A Zork-Like Game\The Shinning. A Zork-Like Game.vcxproj", "{B395A1AF-3B08-4411-A457-EE196814EDEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B14420D6-E03C-43E6-AB4D-529F42E018C4}.Debug|Win32.ActiveCfg = Debug|Win32
-		{B14420D6-E03C-43E6-AB4D-529F42E018C4}.Debug|Win32.Build.0 = Debug|Win32
-		{B14420D6-E03C-43E6-AB4D-529F42E018C4}.Release|Win32.ActiveCfg = Release|Win32
-		{B14420D6-E03C-43E6-AB4D-529F42E018C4}.Release|Win32.Build.0 = Release|Win32
+		{B395A1AF-3B08-4411-A457-EE196814EDEE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B395A1AF-3B08-4411-A457-EE196814EDEE}.Debug|Win32.Build.0 = Debug|Win32
+		{B395A1AF-3B08-4411-A457-EE196814EDEE}.Release|Win32.ActiveCfg = Release|Win32
+		{B395A1AF-3B08-4411-A457-EE196814EDEE}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
