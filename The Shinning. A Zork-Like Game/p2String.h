@@ -17,13 +17,13 @@ public:
 		alloc(1);
 		max_size = 1;
 	}
-	p2String(char* _string){
+	p2String(const char* _string){
 		max_size = strlen(_string) + 1;
 		alloc(max_size);
 		strcpy_s(this->string, (max_size * sizeof(char)) + 1, _string);
 
 	}
-	p2String(p2String& abc){
+	p2String(const p2String& abc){
 		max_size = strlen(abc.string) + 1;
 		alloc(max_size);
 		strcpy_s(this->string, ((max_size)* sizeof(char)) + 1, abc.string);
@@ -45,7 +45,7 @@ public:
 		return this->string;
 	}
 	// Assign class(=)
-	p2String& operator=(const p2String& str2){
+	const p2String& operator=(const p2String& str2){
 		delete[] string;
 		max_size = str2.lenght() + 1;
 		alloc(max_size);
