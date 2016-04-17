@@ -40,6 +40,7 @@ public:
 	p2String getName();
 	p2String getDescription();
 	const EntityType getType();
+	p2String getFirstWord();
 };
 
 class World;

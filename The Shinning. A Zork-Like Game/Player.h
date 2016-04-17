@@ -8,14 +8,15 @@
 class Player : public Entity{
 private:
 	Room* currentRoom;
-	/*Item* inventory;*/
+	Item* inventory;
 public:
-	Player(const char* name, const char* description, Room* parent);
+	Player(const char* name, const char* description, Room* parent, Item* inventory);
 	~Player();
 
 	void Look(p2Vector<p2String>& commands) const; 
 	void Go(p2Vector<p2String>& commands);
 	void ChangeDoor(p2Vector<p2String>& commands);
+	void Pick(p2Vector<p2String>& commands);
 };
 
 #endif

@@ -7,7 +7,7 @@
 World::World(){
 	//Room Construction
 	Room* YourRoom = new Room("Your Room", "You are at your Room. There is a book with some inscription that says\n<Game instructions>,maybe it is from the game you played with your \nfriends yesterday.\nNext to you there is a stair that takes you down to the living Room.");
-	Room* LivingRoom = new Room("Living Room", "You can see a newspaper next to the chair. You left an apple at the\ntop of your table,it is from yesterday. Next to it there is a knife. \nThe exit is to the north");
+	Room* LivingRoom = new Room("Living Room", "The room has some interesting things I might take with me...");
 	Room* Galia = new Room("Galia", "An injured soldier is yelling desperately at the people; it seems \nhe started a fight with the wrong person. The people is surrounding\nthe soldier in a circle.");
 	Room* Mountains1 = new Room("Mountains", "You are surrounded by mountains. You can see at the south the Mountains \nof Madness. To the east and to the west there are more mountains.");
 	Room* Mountains2 = new Room("Mountains", "You are surrounded by mountains. At the northeast there is a path to \nGalia. There is a shield next to the path.");
@@ -145,8 +145,19 @@ World::World(){
 	entities.push_back(Maze2_Maze1);			entities.push_back(Maze2_Maze3);			entities.push_back(Maze3_Maze1);
 	entities.push_back(Maze3_Maze2);
 
+	// Items
+	Item* Backpack = new Item("inventory", "Seems Doraemon's magic pocket. Everything can be put inside.");
+	Item* Knife = new Item("knife", "it is a japanese knife", false, true, LivingRoom);
+	Item* Apple = new Item("Apple", "just an apple", false, true, LivingRoom);
+	Item* Shield = new Item("Shiel", "it seems to be a shield from the militia", false, true, Mountains2);
+
+	entities.push_back(Backpack);		
+	entities.push_back(Knife);		
+	entities.push_back(Apple);		
+	entities.push_back(Shield);
+
 	// Player
-	player = new Player("Aisu", "An 18 year old that is looking for the truth", YourRoom);
+	player = new Player("Aisu", "An 18 year old that is looking for the truth", YourRoom, Backpack);
 
 	entities.push_back(player);
 }
@@ -347,6 +358,12 @@ bool World::Command(p2Vector<p2String>& commands){
 				commands[1] = "up";
 			}
 			player->ChangeDoor(commands);
+		}
+		else if (commands[0] == "take" || commands[0] == "pick" || commands[0] == "get"){
+			player->Pick(commands);
+		}
+		else{
+			printf("A voice in my head tells me to make something different...\n");
 		}
 		break;
 	}

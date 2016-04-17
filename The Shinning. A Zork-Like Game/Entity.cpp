@@ -25,6 +25,9 @@ Entity::~Entity(){};
 p2String Entity::getName(){
 	return name;
 }
+p2String Entity::getFirstWord(){
+	return name[0];
+}
 // Get Entity Description
 p2String Entity::getDescription(){
 	return description;

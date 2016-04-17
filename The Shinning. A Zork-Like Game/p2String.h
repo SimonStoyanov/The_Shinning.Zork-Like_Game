@@ -185,6 +185,11 @@ public:
 
 		return *this;
 	}
+
+	char* operator[](uint i){
+		char* aux = text;
+		return &aux[i];
+	}
 };
 
 
