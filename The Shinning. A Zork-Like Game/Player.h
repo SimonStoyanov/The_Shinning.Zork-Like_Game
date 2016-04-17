@@ -13,10 +13,14 @@ public:
 	Player(const char* name, const char* description, Room* parent, Item* inventory);
 	~Player();
 
+	Room* getcurrentRoom(){ return currentRoom; }
+
 	void Look(p2Vector<p2String>& commands) const; 
 	void Go(p2Vector<p2String>& commands);
 	void ChangeDoor(p2Vector<p2String>& commands);
 	void Pick(p2Vector<p2String>& commands);
+	void Drop(p2Vector<p2String>& commands);
+	
 };
 
 #endif

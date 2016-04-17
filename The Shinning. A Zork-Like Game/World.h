@@ -13,6 +13,7 @@ class Player;
 class World : public Entity{
 private:
 	Player* player;
+	bool first_loop = true;
 public:
 	p2Vector<Entity*> entities;
 	World();

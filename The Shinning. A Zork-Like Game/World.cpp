@@ -148,8 +148,8 @@ World::World(){
 	// Items
 	Item* Backpack = new Item("inventory", "Seems Doraemon's magic pocket. Everything can be put inside.");
 	Item* Knife = new Item("knife", "it is a japanese knife", false, true, LivingRoom);
-	Item* Apple = new Item("Apple", "just an apple", false, true, LivingRoom);
-	Item* Shield = new Item("Shiel", "it seems to be a shield from the militia", false, true, Mountains2);
+	Item* Apple = new Item("apple", "just an apple", false, true, LivingRoom);
+	Item* Shield = new Item("shield", "it seems to be a shield from the militia", false, true, Mountains2);
 
 	entities.push_back(Backpack);		
 	entities.push_back(Knife);		
@@ -183,7 +183,11 @@ void World::Game_Loop(){
 	printf("   > n, s, e, w, i, o, d & up (respectively to the upper commands)\n");
 	printf("   > open, close\n\n");
 	
-	player->Look(commands);
+	if (first_loop){
+		printf("\n----%s----\n", player->getcurrentRoom()->getName());
+		printf("%s\n", player->getcurrentRoom()->getDescription());
+		first_loop = false;
+	}
 	while (1 ){
 		p2Vector<p2String> commands;
 		printf("> ");
@@ -195,6 +199,7 @@ void World::Game_Loop(){
 		Command(commands);
 
 		if (commands[0] == "quit" || player->parent->getName() == "Thank you for playing The Shinning"){
+			printf("----Thank you for playing The Shinning----\nGame made by Simon Stoyanov Beltran for college.\nBased on the game Zork.\n\t\thttps://github.com/SimonStoyanov\n\n");
 			break;
 		}
 	}
@@ -274,7 +279,10 @@ bool World::Command(p2Vector<p2String>& commands){
 		}
 		else if (commands[0] == "i" || commands[0] == "inventory"){
 			commands[0] = "inventory";
+			commands.push_back("");
 			player->Look(commands);
+		}
+		else if (commands[0] == "quit"){
 		}
 		break;
 	}
@@ -362,11 +370,15 @@ bool World::Command(p2Vector<p2String>& commands){
 		else if (commands[0] == "take" || commands[0] == "pick" || commands[0] == "get"){
 			player->Pick(commands);
 		}
-		else{
-			printf("A voice in my head tells me to make something different...\n");
+		else if (commands[0] == "drop"){
+			player->Drop(commands);
 		}
 		break;
 	}
+	case 3:
+		break;
+	case 4:
+		break;
 	default:
 		ret = false;
 	}
