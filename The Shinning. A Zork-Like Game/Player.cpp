@@ -36,8 +36,8 @@ void Player::Look(p2Vector<p2String>& commands) const{
 		   break;
 	case 2:{
 		for (int i = 0; i < myWorld->entities.size(); i++){
-			if (myWorld->entities[i]->getType() == ITEM && myWorld->entities[i]->getName() == commands[0]){
-				aux = dynamic_cast<Item*>(myWorld->entities[i]);
+			if (myWorld->entities[i]->getType() == ITEM && myWorld->entities[i]->getName() == commands[1]){
+				aux = dynamic_cast<Item*> (myWorld->entities[i]);
 				if (aux->GetContainer() == currentRoom || aux->GetContainer() == inventory || aux == inventory){
 					printf("%s\n", aux->getDescription());
 					if (aux->GetCanContain()){
@@ -121,43 +121,59 @@ void Player::ChangeDoor(p2Vector<p2String>& commands){
 }
 
 void Player::Pick(p2Vector<p2String>& commands){
-	Item* temp;
+	Item* aux;
 	bool picked = false;
-	if (commands.size() == (uint)2){
+	switch (commands.size()){
+	case 2:{
 		for (int i = 0; i < myWorld->entities.size(); i++){
 			if (myWorld->entities[i]->getType() == ITEM){
-				temp = dynamic_cast<Item*> (myWorld->entities[i]);
-				if (temp->GetContainer() == currentRoom && temp->getName() == commands[1] && temp->GetPickable()){
-					temp->SetContainer(inventory);
-					picked = true;
-					break;
-				}
-			}
-		}
-	}
-	else if (commands.size() == (uint)4){
-		Item* container;
-		for (int i = 0; i < myWorld->entities.size(); i++){
-			if (myWorld->entities[i]->getName() == commands[3] && myWorld->entities[i]->getType() == ITEM) {
-				container = dynamic_cast<Item*>(myWorld->entities[i]);
-				if (container->GetContainer() != currentRoom) continue;
-				else{
-					for (int i = 0; i < myWorld->entities.size(); i++){
-						if (myWorld->entities[i]->getType() == ITEM){
-							temp = dynamic_cast<Item*> (myWorld->entities[i]);
-							if (temp->GetContainer() == container && temp->getName() == commands[1] && temp->GetPickable()){
-								temp->SetContainer(inventory);
-								picked = true;
-								break;
-							}
-						}
+				aux = dynamic_cast<Item*> (myWorld->entities[i]);
+				if (aux->GetContainer() == currentRoom && aux->getName() == commands[1]){
+					if (aux->GetPickable()){
+						aux->SetContainer(inventory);
+						picked = true;
+						break;
+					}
+					else{
+						printf("The %s can not be picked.\n", aux->getName());
+						return;
 					}
 				}
 			}
 		}
 	}
-	if (picked) printf("I've put the %s on my %s.\n", commands[1].c_str(), inventory->getName());
-	else printf("There is not an item named %s here.\n", commands[1].c_str());
+		   break;
+	case 4:{
+		Item* container;
+		for (int i = 0; i < myWorld->entities.size(); i++){
+			if (myWorld->entities[i]->getName() == commands[3] && myWorld->entities[i]->getType() == ITEM) {
+				container = dynamic_cast<Item*>(myWorld->entities[i]);
+				if (container->GetContainer() != currentRoom && container->GetContainer() != inventory)
+					printf("The %s is not in this room.", container->getName());
+				else{
+					aux = container->Posess(commands[1]);
+					if (aux != nullptr){
+						aux->SetContainer(inventory);
+						picked = true;
+						break;
+					}
+					else {
+						printf("The %s doesn't contain %s.\n", container->getName(), commands[1].c_str());
+						return;
+					}
+				}
+			}
+		}
+	}
+		   break;
+	default:{
+		printf("I don't understand that.\n");
+		return;
+	}
+			break;
+	}
+	if (picked) printf("The %s is now in your %s.\n", commands[1].c_str(), inventory->getName());
+	else printf("The item %s is not there or can not be picked.\n", commands[1].c_str());
 }
  
 void Player::Drop(p2Vector<p2String>& commands){
@@ -177,4 +193,22 @@ void Player::Drop(p2Vector<p2String>& commands){
 	}
 	if (!picked) printf("I've droped the %s.\n", commands[1].c_str());
 	else printf("I cannot drop something that I don't have.\n");
+}
+
+void Player::Equip(p2Vector<p2String>& commands){
+	Item* temp;
+	if ((temp = inventory->Posess(commands[1])) != nullptr){
+		if (equiped == nullptr)printf("I've equiped the %s.\n", temp->getName());
+		else printf("I've swaped %s for %s.\n", equiped->getName(), temp->getName());
+		equiped = temp;
+	}
+	else printf("I cannot equip something I don't have...");
+}
+
+void Player::Unequip(){
+	if (equiped != nullptr){
+		printf("I've unequiped %s.\n", equiped->getName());
+		equiped = nullptr;
+	}
+	else printf("I cannot unequip something I don't have eqiped yet..\n");
 }

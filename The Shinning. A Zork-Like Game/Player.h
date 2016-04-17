@@ -9,6 +9,7 @@ class Player : public Entity{
 private:
 	Room* currentRoom;
 	Item* inventory;
+	Item* equiped;
 public:
 	Player(const char* name, const char* description, Room* parent, Item* inventory);
 	~Player();
@@ -20,7 +21,8 @@ public:
 	void ChangeDoor(p2Vector<p2String>& commands);
 	void Pick(p2Vector<p2String>& commands);
 	void Drop(p2Vector<p2String>& commands);
-	
+	void Equip(p2Vector<p2String>& commands);
+	void Unequip();
 };
 
 #endif

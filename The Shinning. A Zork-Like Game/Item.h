@@ -3,7 +3,6 @@
 
 #include "Entity.h"
 
-
 class Item :public Entity{
 private:
 	Entity* container;
@@ -21,7 +20,7 @@ public:
 	Entity* GetContainer();
 	bool GetPickable()const;
 	bool GetCanContain()const;
-
+	Item* Posess(p2String& item);
 
 };
 

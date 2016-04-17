@@ -146,12 +146,16 @@ World::World(){
 	entities.push_back(Maze3_Maze2);
 
 	// Items
-	Item* Backpack = new Item("inventory", "Seems Doraemon's magic pocket. Everything can be put inside.");
+	Item* Backpack = new Item("inventory", "You can put object into it and drop them into the floor... seems legit!");
+	Item* Wardrobe = new Item("wardrobe", "maybe it will guide me to a mystical place... or maybe not", true, false, YourRoom);
+	Item* Book = new Item("book", "simple book which I didn't read...", false, true, Wardrobe);
 	Item* Knife = new Item("knife", "it is a japanese knife", false, true, LivingRoom);
 	Item* Apple = new Item("apple", "just an apple", false, true, LivingRoom);
 	Item* Shield = new Item("shield", "it seems to be a shield from the militia", false, true, Mountains2);
 
-	entities.push_back(Backpack);		
+	entities.push_back(Backpack);
+	entities.push_back(Wardrobe);
+	entities.push_back(Book);
 	entities.push_back(Knife);		
 	entities.push_back(Apple);		
 	entities.push_back(Shield);
@@ -216,7 +220,6 @@ bool World::Command(p2Vector<p2String>& commands){
 		if ((commands[0] == "look") || (commands[0] == "l")){
 			player->Look(commands);
 		}
-		// Directions | Movement
 		if ((commands[0] == "north") || (commands[0] == "n")){
 			commands[0] = "north";
 			player->Go(commands);
@@ -288,7 +291,10 @@ bool World::Command(p2Vector<p2String>& commands){
 	}
 	case 2:
 	{
-		if (commands[0] == "go"){
+		if (commands[0] == "look"){
+			player->Look(commands);
+		}
+		else if (commands[0] == "go"){
 			if (commands[1] == "north" || commands[1] == "n"){
 				commands[1] = "north";
 			}
@@ -373,11 +379,21 @@ bool World::Command(p2Vector<p2String>& commands){
 		else if (commands[0] == "drop"){
 			player->Drop(commands);
 		}
+		else if (commands[0] == "equip"){
+			player->Equip(commands);
+		}
+		else if (commands[0] == "unequip"){
+			player->Unequip();
+		}
 		break;
 	}
-	case 3:
-		break;
 	case 4:
+		if (commands[0] == "pick" || commands[0] == "get" || commands[0] == "take"){
+			player->Pick(commands);
+		}
+		else if (commands[0] == "drop" || commands[0] == "put" || commands[0] == "leave"){
+			player->Drop(commands);
+		}
 		break;
 	default:
 		ret = false;
