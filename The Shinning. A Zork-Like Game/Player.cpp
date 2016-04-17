@@ -201,6 +201,15 @@ void Player::Equip(p2Vector<p2String>& commands){
 		if (equiped == nullptr)printf("I've equiped the %s.\n", temp->getName());
 		else printf("I've swaped %s for %s.\n", equiped->getName(), temp->getName());
 		equiped = temp;
+		if (equiped->getName() == "book"){
+			Stats.intelligence = "Still Average";
+		}
+		else if (equiped->getName() == "knife"){
+			Stats.attack += 4;
+		}
+		else if (equiped->getName() == "shield"){
+			Stats.armor += 5;
+		}
 	}
 	else printf("I cannot equip something I don't have...");
 }
@@ -208,7 +217,23 @@ void Player::Equip(p2Vector<p2String>& commands){
 void Player::Unequip(){
 	if (equiped != nullptr){
 		printf("I've unequiped %s.\n", equiped->getName());
+		if (equiped->getName() == "book"){
+			Stats.intelligence = "Average";
+		}
+		else if (equiped->getName() == "knife"){
+			Stats.attack -= 4;
+		}
+		else if (equiped->getName() == "shield"){
+			Stats.armor -= 5;
+		}
 		equiped = nullptr;
 	}
 	else printf("I cannot unequip something I don't have eqiped yet..\n");
+}
+
+void Player::PrintStats(){
+	printf("\thealth:    %d", Stats.hp);			printf("\tarmor:   %d", Stats.armor);
+	printf("\n\tattack:    %d", Stats.attack);		printf("\tintelligence:  %s", Stats.intelligence);
+
+	printf("\n");
 }

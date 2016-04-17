@@ -188,8 +188,8 @@ void World::Game_Loop(){
 	printf("   > open, close\n\n");
 	
 	if (first_loop){
-		printf("\n----%s----\n", player->getcurrentRoom()->getName());
-		printf("%s\n", player->getcurrentRoom()->getDescription());
+		commands.push_back("look");
+		Command(commands);
 		first_loop = false;
 	}
 	while (1 ){
@@ -203,7 +203,9 @@ void World::Game_Loop(){
 		Command(commands);
 
 		if (commands[0] == "quit" || player->parent->getName() == "Thank you for playing The Shinning"){
-			printf("----Thank you for playing The Shinning----\nGame made by Simon Stoyanov Beltran for college.\nBased on the game Zork.\n\t\thttps://github.com/SimonStoyanov\n\n");
+			if (commands[0] == "quit"){
+				printf("----Thank you for playing The Shinning----\nGame made by Simon Stoyanov Beltran for college.\nBased on the game Zork.\n\t\thttps://github.com/SimonStoyanov\n\n");
+			}
 			break;
 		}
 	}
@@ -220,70 +222,73 @@ bool World::Command(p2Vector<p2String>& commands){
 		if ((commands[0] == "look") || (commands[0] == "l")){
 			player->Look(commands);
 		}
-		if ((commands[0] == "north") || (commands[0] == "n")){
+		else if ((commands[0] == "north") || (commands[0] == "n")){
 			commands[0] = "north";
 			player->Go(commands);
 			player->Look(commands);
 		}
-		if ((commands[0] == "south") || (commands[0] == "s")){
+		else if ((commands[0] == "south") || (commands[0] == "s")){
 			commands[0] = "south";
 			player->Go(commands);
 			player->Look(commands);
 		}
-		if ((commands[0] == "east") || (commands[0] == "e")){
+		else if ((commands[0] == "east") || (commands[0] == "e")){
 			commands[0] = "east";
 			player->Go(commands);
 			player->Look(commands);
 		}
-		if ((commands[0] == "west") || (commands[0] == "w")){
+		else if ((commands[0] == "west") || (commands[0] == "w")){
 			commands[0] = "west";
 			player->Go(commands);
 			player->Look(commands);
 		}
-		if ((commands[0] == "northeast") || (commands[0] == "ne")){
+		else if ((commands[0] == "northeast") || (commands[0] == "ne")){
 			commands[0] = "northeast";
 			player->Go(commands);
 			player->Look(commands);
 		}
-		if ((commands[0] == "northwest") || (commands[0] == "nw")){
+		else if ((commands[0] == "northwest") || (commands[0] == "nw")){
 			commands[0] = "northwest";
 			player->Go(commands);
 			player->Look(commands);
 		}
-		if ((commands[0] == "southeast") || (commands[0] == "se")){
+		else if ((commands[0] == "southeast") || (commands[0] == "se")){
 			commands[0] = "southeast";
 			player->Go(commands);
 			player->Look(commands);
 		}
-		if ((commands[0] == "southwest") || (commands[0] == "sw")){
+		else if ((commands[0] == "southwest") || (commands[0] == "sw")){
 			commands[0] = "southwest";
 			player->Go(commands);
 			player->Look(commands);
 		}
-		if ((commands[0] == "down") || (commands[0] == "d")){
+		else if ((commands[0] == "down") || (commands[0] == "d")){
 			commands[0] = "down";
 			player->Go(commands);
 			player->Look(commands);
 		}
-		if ((commands[0] == "up") || (commands[0] == "u")){
+		else if ((commands[0] == "up") || (commands[0] == "u")){
 			commands[0] = "up";
 			player->Go(commands);
 			player->Look(commands);
 		}
-		if (commands[0] == "outside" || commands[0] == "out"){
+		else if (commands[0] == "outside" || commands[0] == "out"){
 			commands[0] = "out";
 			player->Go(commands);
 			player->Look(commands);
 		}
-		if (commands[0] == "inside" || commands[0] == "in"){
+		else if(commands[0] == "inside" || commands[0] == "in"){
 			commands[0] == "in";
 			player->Go(commands);
 			player->Look(commands);
 		}
-		else if (commands[0] == "i" || commands[0] == "inventory"){
+		else if (commands[0] == "i" || commands[0] == "inv" ||commands[0] == "inventory"){
 			commands[0] = "inventory";
 			commands.push_back("");
 			player->Look(commands);
+		}
+		else if (commands[0] == "stats" || commands[0] == "st"){
+			player->PrintStats();
 		}
 		else if (commands[0] == "quit"){
 		}
