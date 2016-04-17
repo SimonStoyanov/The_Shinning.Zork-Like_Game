@@ -1,44 +1,26 @@
-#include <iostream>
-#include "p2String.h"
-#include <map>
 #include "Room.h"
+#include "Entity.h"
+#include "World.h"
 
-//Room Construction
-Room::Room(p2String _name, p2String _description) : name(_name), description(_description){}
-
-Room::Room(p2String _name) : name(_name){}
-
-//Get Room Name
-p2String Room::getName(){
-	return name;
+Room::Room(const char* title, const char* description) : Entity(title, description, nullptr){
+	type = ROOM;
 }
 
-//Get Room Description
-p2String Room::getDescription(){
-	return description;
+Room::~Room(){}
+
+void Room::Look() const{
+	this->Look();
 }
 
-//Print Room
-void Room::printRoom(){
-	printf("--%s--\n", getName());
-	printf("%s", getDescription());
-}
-
-//Link Function
-void Room::link(Room *room, p2String _direction){
-	exits[_direction] = room;
-}
-
-//Get linked room
-Room* Room::getLinked(p2String direction){
-	map<p2String, Room*> ::iterator it;
-
-	it = exits.find(direction);
-
-	if (it != exits.end()){
-		return it->second;
+Exit* Room::GetExit(p2String& direction){
+	for (int i = 0; i < myWorld->entities.size(); i++){
+		if (myWorld->entities[i]->getType() == EXIT){
+			Exit* aux;
+			aux = dynamic_cast<Exit*> (myWorld->entities[i]);
+			if (aux->parent == this && aux->getName() == direction){
+				return aux;
+			}
+		}
 	}
-	else{
-		return NULL;
-	}
+	return nullptr;
 }

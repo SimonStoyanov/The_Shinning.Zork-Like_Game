@@ -10,6 +10,26 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="Exit.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="p2String.h" />
+    <ClInclude Include="p2Vector.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Room.h" />
+    <ClInclude Include="World.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="Exit.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MemLeaks.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Room.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="World.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B395A1AF-3B08-4411-A457-EE196814EDEE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -77,23 +97,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Commands.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Map.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Room.cpp" />
-    <ClCompile Include="World.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Commands.h" />
-    <ClInclude Include="Map.h" />
-    <ClInclude Include="MemLeaks.h" />
-    <ClInclude Include="p2String.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Room.h" />
-    <ClInclude Include="World.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

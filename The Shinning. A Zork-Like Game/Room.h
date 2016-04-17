@@ -1,30 +1,16 @@
-#ifndef Room_h
-#define Room_h
+#ifndef ROOM_H
+#define ROOM_H
 
-#include "p2String.h"
-#include <iostream>
-#include <map>
+#include "Entity.h"
+#include "Exit.h"
 
-using namespace std;
-
-class Room{
-private:
-	p2String name;
-	p2String description;
+class Room : public Entity{
 public:
-	//Room Construction
-	Room(p2String _name, p2String _description);
-	Room(p2String _name);
+	Room(const char* name, const char* description);
+	~Room();
 
-	//Map
-	map<p2String, Room*> exits;
-
-	p2String getName();
-	p2String getDescription();
-
-	void printRoom();
-	void link(Room *room, p2String _direction);
-	Room* getLinked(p2String direction);
+	void Look() const;
+	Exit* GetExit(p2String& direction);
 };
 
 #endif

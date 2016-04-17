@@ -1,24 +1,21 @@
-#ifndef Player_h
-#define Player_h
+#ifndef PLAYER_H
+#define PLAYER_H
 
-#include <iostream>
-#include "p2String.h"
+#include "Entity.h"
 #include "Room.h"
+#include "Item.h"
 
-using namespace std;
-
-class Player{
-	p2String name;
-	p2String description;
-
+class Player : public Entity{
+private:
+	Room* currentRoom;
+	/*Item* inventory;*/
 public:
-	Room *currentRoom;
-	Player(p2String _name, p2String _description, Room *_currentRoom);
+	Player(const char* name, const char* description, Room* parent);
+	~Player();
 
-	p2String getName();
-	p2String getDescription();
-	Room *getRoom();
-
+	void Look(p2Vector<p2String>& commands) const; 
+	void Go(p2Vector<p2String>& commands);
+	void ChangeDoor(p2Vector<p2String>& commands);
 };
 
 #endif

@@ -1,16 +1,14 @@
 #include <iostream>
 #include "World.h"
-#include "MemLeaks.h"
+#include "Entity.h"
+
+World* myWorld = nullptr;
 
 int main(){
 
-	ReportMemoryLeaks();
+	myWorld = new World;
+	myWorld->Game_Loop();
 
-	World *TheShinning = new World();
-
-	Create_World(TheShinning);
-	Game_Loop(TheShinning);
-	Clean_Game();
-
+	system("pause");
 	return 0;
 }

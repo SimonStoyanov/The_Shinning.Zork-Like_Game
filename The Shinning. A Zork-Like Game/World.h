@@ -1,35 +1,28 @@
-#ifndef World_h
-#define World_h
+#ifndef WORLD_H
+#define WORLD_H
 
+#include "p2String.h"
+#include "p2Vector.h"
+
+#include "Entity.h"
 #include "Player.h"
-#include "Map.h"
 
-class Map;
+class Entity;
+class Player;
 
-class World{
+class World : public Entity{
+private:
+	Player* player;
 public:
+	p2Vector<Entity*> entities;
 	World();
-	World(Player* player, Map* map);
+	~World();
 
-	Map *Nir; //Name of the country
-	Player *Aisu; //Name of the player
-	World *TheShinning;
+	void Game_Loop();
 
-	void Clean_Map(){
-		delete Nir;
-	}
-	void Clean_Player(){
-		delete Aisu;
-	}
-	void Clean_World(){
-		delete TheShinning;
-	}
+	bool Command(p2Vector<p2String>& commands);
 
 };
-
-void Create_World(World *TheShinning);
-void Game_Loop(World *TheShinning);
-void Clean_Game();
 
 
 #endif
