@@ -3,9 +3,8 @@
 #include "World.h"
 #include "Exit.h"
 
-Player::Player(const char* name, const char* description, Room* parent, Item* inventory) : Entity(name, description, parent),
-	currentRoom(parent),
-	inventory(inventory)
+Player::Player(const char* name, const char* description, Room* parent, Item* inventory) : Creature(name, description, parent, inventory),
+	currentRoom(parent)
 	{
 		type = PLAYER;
 	}
